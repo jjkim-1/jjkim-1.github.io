@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Nonlinear 6-DOF flight dynamics and LQR control project developed in MATLAB."
+    >
+
+    <title>
+        Nonlinear 6-DOF Flight Dynamics & Control | James Kim
+    </title>
+
+    <!--
+        This page is inside /projects/,
+        so styles.css is one directory above it.
+    -->
+    <link
+        rel="stylesheet"
+        href="../styles.css"
+    >
+</head>
+
+
+<body>
+
+    <!-- ======================================================
+         SITE HEADER
+         ====================================================== -->
+
+    <header class="site-header">
+
+        <div class="site-header-inner">
+
+            <a
+                href="../index.html"
+                class="site-logo"
+            >
+                James Kim
+            </a>
+
+            <nav
+                class="site-nav"
+                aria-label="Primary navigation"
+            >
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a
+                    href="../projects.html"
+                    aria-current="page"
+                >
+                    Projects
+                </a>
+
+                <a href="../resume.html">
+                    Resume
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ======================================================
+         MAIN PROJECT CONTENT
+         ====================================================== -->
+
+    <main class="project-detail-page">
+
+
+        <!-- ==================================================
+             BACK NAVIGATION
+             ================================================== -->
+
+        <div class="project-back-row">
+
+            <a
+                href="../projects.html"
+                class="project-back-link"
+            >
+                ← Back to Projects
+            </a>
+
+        </div>
+
+
+        <!-- ==================================================
+             PROJECT HERO
+             ================================================== -->
+
+        <section
+            class="project-hero"
+            aria-labelledby="project-title"
+        >
+
+            <p class="project-eyebrow">
+                Guidance, Navigation & Control Portfolio Project
+            </p>
+
+            <h1 id="project-title">
+                Nonlinear 6-DOF Flight Dynamics & LQR Control
+            </h1>
+
+            <p class="project-hero-summary">
+                A MATLAB-based nonlinear six-degree-of-freedom
+                flight dynamics and control simulation for a
+                notional aerospace vehicle. The project combines
+                quaternion attitude dynamics, steady-flight trim,
+                numerical linearization, modal and controllability
+                analysis, LQR state-feedback design, and nonlinear
+                closed-loop validation.
+            </p>
+
+
+            <!-- Technical tags -->
+
+            <div
+                class="project-tags"
+                aria-label="Project technologies"
+            >
+
+                <span class="project-tag">
+                    MATLAB
+                </span>
+
+                <span class="project-tag">
+                    6-DOF Dynamics
+                </span>
+
+                <span class="project-tag">
+                    Quaternions
+                </span>
+
+                <span class="project-tag">
+                    Trim
+                </span>
+
+                <span class="project-tag">
+                    State Space
+                </span>
+
+                <span class="project-tag">
+                    LQR
+                </span>
+
+                <span class="project-tag">
+                    RK4
+                </span>
+
+                <span class="project-tag">
+                    Regression Testing
+                </span>
+
+            </div>
+
+
+            <!-- Primary project status -->
+
+            <div class="project-status">
+
+                <span
+                    class="status-indicator"
+                    aria-hidden="true"
+                >
+                    ✓
+                </span>
+
+                <span>
+                    Automated Regression Suite:
+                    <strong>PASS</strong>
+                </span>
+
+            </div>
+
+
+            <!-- Jump directly to results -->
+
+            <a
+                href="#results"
+                class="project-primary-button"
+            >
+                Explore Results ↓
+            </a>
+
+        </section>
+
+
+        <!-- ==================================================
+             QUICK TECHNICAL OVERVIEW
+             ================================================== -->
+
+        <section
+            class="project-section"
+            aria-labelledby="highlights-title"
+        >
+
+            <div class="project-section-heading">
+
+                <p class="section-kicker">
+                    Engineering Overview
+                </p>
+
+                <h2 id="highlights-title">
+                    Key Technical Components
+                </h2>
+
+            </div>
+
+
+            <div class="project-highlight-grid">
+
+
+                <!-- 6-DOF -->
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        Nonlinear 6-DOF
+                    </h3>
+
+                    <p class="highlight-value">
+                        13 States
+                    </p>
+
+                    <p>
+                        Full rigid-body translational and rotational
+                        dynamics using a scalar-first quaternion
+                        attitude representation.
+                    </p>
+
+                </article>
+
+
+                <!-- Linearization -->
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        Linearization
+                    </h3>
+
+                    <p class="highlight-value">
+                        12-State Reduced Model
+                    </p>
+
+                    <p>
+                        Quaternion attitude dynamics are mapped into
+                        a local three-component attitude-error
+                        representation for control analysis.
+                    </p>
+
+                </article>
+
+
+                <!-- Controller -->
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        Control
+                    </h3>
+
+                    <p class="highlight-value">
+                        Continuous-Time LQR
+                    </p>
+
+                    <p>
+                        State-feedback gains are designed from the
+                        reduced linear model and applied to the
+                        original nonlinear plant.
+                    </p>
+
+                </article>
+
+
+                <!-- Verification -->
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        Verification
+                    </h3>
+
+                    <p class="highlight-value">
+                        Automated Testing
+                    </p>
+
+                    <p>
+                        Numerical integration, rigid-body dynamics,
+                        state mappings, linearization, and nonlinear
+                        closed-loop response are regression tested.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             RESULTS
+             ================================================== -->
+
+        <section
+            class="project-section project-results-section"
+            id="results"
+            aria-labelledby="results-title"
+        >
+
+            <div class="project-section-heading">
+
+                <p class="section-kicker">
+                    Nonlinear Simulation
+                </p>
+
+                <h2 id="results-title">
+                    Closed-Loop Results
+                </h2>
+
+                <p>
+                    The same initial perturbation is applied to the
+                    nonlinear open-loop and LQR closed-loop models.
+                    Select a result below to inspect the controller
+                    response.
+                </p>
+
+            </div>
+
+
+            <!-- ==============================================
+                 MAIN RESULT VIEWER
+                 ============================================== -->
+
+            <div class="result-viewer">
+
+
+                <!-- Previous result -->
+
+                <button
+                    class="result-arrow result-arrow-left"
+                    id="result-prev"
+                    type="button"
+                    aria-label="Show previous result"
+                >
+                    ‹
+                </button>
+
+
+                <!-- Main figure -->
+
+                <figure class="result-main">
+
+                    <button
+                        class="result-image-button"
+                        id="result-image-button"
+                        type="button"
+                        aria-label="Enlarge result figure"
+                    >
+
+                        <img
+                            id="result-main-image"
+                            src="../assets/projects/gnc-6dof/phase2_normalized_error.png"
+                            alt="Normalized open-loop versus closed-loop state error"
+                        >
+
+                    </button>
+
+
+                    <figcaption>
+
+                        <h3 id="result-main-title">
+                            Open-Loop vs Closed-Loop Disturbance Rejection
+                        </h3>
+
+                        <p id="result-main-caption">
+                            Normalized controller-state error comparison
+                            demonstrating disturbance rejection of the
+                            nonlinear LQR closed-loop system relative to
+                            the open-loop response.
+                        </p>
+
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- Next result -->
+
+                <button
+                    class="result-arrow result-arrow-right"
+                    id="result-next"
+                    type="button"
+                    aria-label="Show next result"
+                >
+                    ›
+                </button>
+
+            </div>
+
+
+            <!-- ==============================================
+                 RESULT THUMBNAILS
+                 ============================================== -->
+
+            <div
+                class="result-thumbnails"
+                role="group"
+                aria-label="Select result figure"
+            >
+
+
+                <!-- Figure 1 -->
+
+                <button
+                    class="result-thumbnail is-active"
+                    type="button"
+                    data-index="0"
+                    data-image="../assets/projects/gnc-6dof/phase2_normalized_error.png"
+                    data-title="Open-Loop vs Closed-Loop Disturbance Rejection"
+                    data-caption="Normalized controller-state error comparison demonstrating disturbance rejection of the nonlinear LQR closed-loop system relative to the open-loop response."
+                    aria-label="Show disturbance rejection result"
+                >
+
+                    <img
+                        src="../assets/projects/gnc-6dof/phase2_normalized_error.png"
+                        alt=""
+                    >
+
+                    <span>
+                        Disturbance Rejection
+                    </span>
+
+                </button>
+
+
+                <!-- Figure 2 -->
+
+                <button
+                    class="result-thumbnail"
+                    type="button"
+                    data-index="1"
+                    data-image="../assets/projects/gnc-6dof/phase2_translational_response.png"
+                    data-title="Translational Response"
+                    data-caption="Altitude and airspeed response comparing nonlinear open-loop motion with LQR closed-loop regulation about the steady-flight trim condition."
+                    aria-label="Show translational response"
+                >
+
+                    <img
+                        src="../assets/projects/gnc-6dof/phase2_translational_response.png"
+                        alt=""
+                    >
+
+                    <span>
+                        Translation
+                    </span>
+
+                </button>
+
+
+                <!-- Figure 3 -->
+
+                <button
+                    class="result-thumbnail"
+                    type="button"
+                    data-index="2"
+                    data-image="../assets/projects/gnc-6dof/phase2_rotational_response.png"
+                    data-title="Rotational Response"
+                    data-caption="Attitude-error and angular-rate response showing the nonlinear closed-loop vehicle returning toward the local trim condition."
+                    aria-label="Show rotational response"
+                >
+
+                    <img
+                        src="../assets/projects/gnc-6dof/phase2_rotational_response.png"
+                        alt=""
+                    >
+
+                    <span>
+                        Rotation
+                    </span>
+
+                </button>
+
+
+                <!-- Figure 4 -->
+
+                <button
+                    class="result-thumbnail"
+                    type="button"
+                    data-index="3"
+                    data-image="../assets/projects/gnc-6dof/phase2_control_effort.png"
+                    data-title="LQR Feedback Control Effort"
+                    data-caption="Feedback-command perturbations generated by the LQR controller during nonlinear disturbance recovery."
+                    aria-label="Show LQR control effort"
+                >
+
+                    <img
+                        src="../assets/projects/gnc-6dof/phase2_control_effort.png"
+                        alt=""
+                    >
+
+                    <span>
+                        Control Effort
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             ARCHITECTURE
+             ================================================== -->
+
+        <section
+            class="project-section"
+            aria-labelledby="architecture-title"
+        >
+
+            <div class="project-section-heading">
+
+                <p class="section-kicker">
+                    System Design
+                </p>
+
+                <h2 id="architecture-title">
+                    Simulation & Control Architecture
+                </h2>
+
+            </div>
+
+
+            <div class="architecture-flow">
+
+                <div class="architecture-node">
+                    Vehicle Parameters
+                </div>
+
+                <div
+                    class="architecture-arrow"
+                    aria-hidden="true"
+                >
+                    ↓
+                </div>
+
+                <div class="architecture-node">
+                    Atmosphere + Aerodynamics
+                </div>
+
+                <div
+                    class="architecture-arrow"
+                    aria-hidden="true"
+                >
+                    ↓
+                </div>
+
+                <div class="architecture-node architecture-node-primary">
+                    Nonlinear 6-DOF Plant
+                </div>
+
+                <div
+                    class="architecture-arrow"
+                    aria-hidden="true"
+                >
+                    ↓
+                </div>
+
+                <div class="architecture-node">
+                    Steady-Flight Trim
+                </div>
+
+                <div
+                    class="architecture-arrow"
+                    aria-hidden="true"
+                >
+                    ↓
+                </div>
+
+                <div class="architecture-node">
+                    Reduced Linearization
+                </div>
+
+                <div
+                    class="architecture-arrow"
+                    aria-hidden="true"
+                >
+                    ↓
+                </div>
+
+                <div class="architecture-node">
+                    Modal + Controllability Analysis
+                </div>
+
+                <div
+                    class="architecture-arrow"
+                    aria-hidden="true"
+                >
+                    ↓
+                </div>
+
+                <div class="architecture-node architecture-node-primary">
+                    LQR Controller
+                </div>
+
+                <div
+                    class="architecture-arrow"
+                    aria-hidden="true"
+                >
+                    ↓
+                </div>
+
+                <div class="architecture-node">
+                    Nonlinear Closed-Loop Validation
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             TECHNICAL DETAILS
+             ================================================== -->
+
+        <section
+            class="project-section"
+            aria-labelledby="technical-title"
+        >
+
+            <div class="project-section-heading">
+
+                <p class="section-kicker">
+                    Technical Details
+                </p>
+
+                <h2 id="technical-title">
+                    Engineering Implementation
+                </h2>
+
+                <p>
+                    Expand a section for additional implementation
+                    details without leaving this page.
+                </p>
+
+            </div>
+
+
+            <div class="technical-accordion">
+
+
+                <!-- EOM -->
+
+                <details class="technical-detail">
+
+                    <summary>
+                        6-DOF Equations of Motion
+                    </summary>
+
+                    <div class="technical-detail-content">
+
+                        <p>
+                            The nonlinear plant contains body-frame
+                            translational dynamics, rigid-body
+                            rotational dynamics, navigation-frame
+                            position propagation, and quaternion
+                            attitude propagation.
+                        </p>
+
+                        <pre><code>V_dot_b =
+    F_b / m
+    - cross(omega_b, V_b)
+    + C_nb * g_n</code></pre>
+
+                        <pre><code>omega_dot_b =
+    I \ (
+        M_b
+        - cross(omega_b, I * omega_b)
+    )</code></pre>
+
+                    </div>
+
+                </details>
+
+
+                <!-- Quaternion -->
+
+                <details class="technical-detail">
+
+                    <summary>
+                        Quaternion Attitude Representation
+                    </summary>
+
+                    <div class="technical-detail-content">
+
+                        <p>
+                            A scalar-first unit quaternion represents
+                            body-to-NED orientation. Quaternion
+                            normalization is enforced throughout the
+                            nonlinear RK4 integration process.
+                        </p>
+
+                        <pre><code>x =
+[p_N, p_E, p_D,
+ u, v, w,
+ q_0, q_1, q_2, q_3,
+ p, q, r]^T</code></pre>
+
+                    </div>
+
+                </details>
+
+
+                <!-- Linearization -->
+
+                <details class="technical-detail">
+
+                    <summary>
+                        Trim & Reduced Linearization
+                    </summary>
+
+                    <div class="technical-detail-content">
+
+                        <p>
+                            A steady-flight operating point is solved
+                            numerically at approximately 1000 m
+                            altitude and 300 m/s airspeed.
+                        </p>
+
+                        <p>
+                            The quaternion is replaced locally by a
+                            three-component attitude-error coordinate,
+                            producing a 12-state reduced model:
+                        </p>
+
+                        <pre><code>delta_x_dot =
+    A * delta_x
+    + B * delta_u</code></pre>
+
+                    </div>
+
+                </details>
+
+
+                <!-- LQR -->
+
+                <details class="technical-detail">
+
+                    <summary>
+                        LQR State-Feedback Controller
+                    </summary>
+
+                    <div class="technical-detail-content">
+
+                        <p>
+                            A continuous-time Linear Quadratic
+                            Regulator is designed around the reduced
+                            trim linearization.
+                        </p>
+
+                        <pre><code>delta_u = -K * delta_x
+
+u_ctrl =
+    u_trim
+    + delta_u</code></pre>
+
+                        <p>
+                            The gain matrix is then applied to the
+                            original nonlinear quaternion plant for
+                            closed-loop verification.
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+                <!-- Verification -->
+
+                <details class="technical-detail">
+
+                    <summary>
+                        Verification Strategy
+                    </summary>
+
+                    <div class="technical-detail-content">
+
+                        <p>
+                            The project includes subsystem and
+                            integrated regression tests covering the
+                            numerical, modeling, mapping, linearization,
+                            and control layers of the simulation.
+                        </p>
+
+                        <pre><code>testReport = runAllTests;</code></pre>
+
+                        <p>
+                            Current validated baseline:
+                        </p>
+
+                        <pre><code>OVERALL PROJECT VALIDATION: PASS</code></pre>
+
+                    </div>
+
+                </details>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             VALIDATION
+             ================================================== -->
+
+        <section
+            class="project-section project-validation-section"
+            aria-labelledby="validation-title"
+        >
+
+            <div class="project-section-heading">
+
+                <p class="section-kicker">
+                    Verification
+                </p>
+
+                <h2 id="validation-title">
+                    Automated Project Validation
+                </h2>
+
+            </div>
+
+
+            <div class="validation-panel">
+
+                <div class="validation-heading">
+
+                    <span
+                        class="validation-check-large"
+                        aria-hidden="true"
+                    >
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Overall Project Validation: PASS
+                        </h3>
+
+                        <p>
+                            The current Phase I and Phase II baseline
+                            completed the automated regression suite
+                            successfully.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="validation-grid">
+
+                    <div class="validation-item">
+                        <span>✓</span>
+                        RK4 Convergence
+                    </div>
+
+                    <div class="validation-item">
+                        <span>✓</span>
+                        Rigid-Body Rotation
+                    </div>
+
+                    <div class="validation-item">
+                        <span>✓</span>
+                        Propulsion Model
+                    </div>
+
+                    <div class="validation-item">
+                        <span>✓</span>
+                        Control Interface
+                    </div>
+
+                    <div class="validation-item">
+                        <span>✓</span>
+                        Reduced-State Mappings
+                    </div>
+
+                    <div class="validation-item">
+                        <span>✓</span>
+                        Reduced Linearization
+                    </div>
+
+                    <div class="validation-item">
+                        <span>✓</span>
+                        LQR Controller
+                    </div>
+
+                    <div class="validation-item">
+                        <span>✓</span>
+                        Nonlinear LQR Controller
+                    </div>
+
+                    <div class="validation-item">
+                        <span>✓</span>
+                        Phase I Acceptance
+                    </div>
+
+                    <div class="validation-item">
+                        <span>✓</span>
+                        Phase II Acceptance
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             PROJECT FOOTER NAVIGATION
+             ================================================== -->
+
+        <section class="project-end-navigation">
+
+            <p>
+                Return to the full portfolio to explore additional
+                aerospace engineering projects.
+            </p>
+
+            <a
+                href="../projects.html"
+                class="project-primary-button"
+            >
+                ← Back to Projects
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- ======================================================
+         IMAGE LIGHTBOX
+         ======================================================
+         This will become interactive once project-gallery.js
+         is added.
+         ====================================================== -->
+
+    <div
+        class="result-lightbox"
+        id="result-lightbox"
+        hidden
+        role="dialog"
+        aria-modal="true"
+        aria-label="Enlarged project result"
+    >
+
+        <button
+            class="lightbox-close"
+            id="lightbox-close"
+            type="button"
+            aria-label="Close enlarged image"
+        >
+            ×
+        </button>
+
+        <button
+            class="lightbox-arrow lightbox-arrow-left"
+            id="lightbox-prev"
+            type="button"
+            aria-label="Show previous enlarged result"
+        >
+            ‹
+        </button>
+
+        <img
+            id="lightbox-image"
+            src="../assets/projects/gnc-6dof/phase2_normalized_error.png"
+            alt="Enlarged project result"
+        >
+
+        <button
+            class="lightbox-arrow lightbox-arrow-right"
+            id="lightbox-next"
+            type="button"
+            aria-label="Show next enlarged result"
+        >
+            ›
+        </button>
+
+    </div>
+
+</body>
+
+</html>
