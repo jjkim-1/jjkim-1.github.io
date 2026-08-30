@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -14,16 +15,20 @@
         content="Technical aerospace engineering project portfolio for James Kim."
     >
 
-    <title>Projects | James Kim</title>
+    <title>
+        Projects | James Kim
+    </title>
 
     <link
         rel="stylesheet"
         href="styles.css"
     >
+
 </head>
 
 
 <body>
+
 
     <!-- ======================================================
          PROJECT PAGE HEADER
@@ -114,138 +119,95 @@
 
 
                 <!-- ------------------------------------------
-                     PROJECT TITLE
+                     CATEGORY
                      ------------------------------------------ -->
 
                 <p class="project-category">
                     Flight Dynamics & Control
                 </p>
 
+
+                <!-- ------------------------------------------
+                     TITLE
+                     ------------------------------------------ -->
+
                 <h2 class="portfolio-project-title">
-
-                    <a href="projects/gnc-6dof.html">
-                        Nonlinear 6-DOF Flight Dynamics & LQR Control
-                    </a>
-
+                    Nonlinear 6-DOF Flight Dynamics & LQR Control
                 </h2>
 
 
+                <!-- ------------------------------------------
+                     EXPLORE FULL PROJECT
+                     ------------------------------------------ -->
+
+                <div class="portfolio-project-actions portfolio-project-actions-top">
+
+                    <a
+                        href="projects/gnc-6dof.html"
+                        class="portfolio-project-button"
+                    >
+                        Explore Full Project →
+                    </a>
+
+                </div>
+
+
+                <!-- ------------------------------------------
+                     SUBTITLE
+                     ------------------------------------------ -->
+
                 <p class="project-subtitle">
-                    MATLAB-Based Nonlinear Flight Dynamics,
+
+                    MATLAB Based Nonlinear Flight Dynamics,
                     Linearization, and Closed-Loop Control
+
                 </p>
 
 
                 <!-- ------------------------------------------
-                     PROJECT SUMMARY
+                     SHORT PROJECT SUMMARY
                      ------------------------------------------ -->
 
                 <p>
-                    Developed a modular nonlinear six degree of freedom
-                    aerospace vehicle simulation using quaternion attitude
-                    dynamics and rigid body equations of motion. The model
-                    was extended through steady flight trim, numerical
-                    linearization, modal and controllability analysis,
-                    continuous time LQR state feedback design, and
-                    nonlinear closed-loop verification.
-                </p>
 
-                <p>
-                    The controller was designed from a reduced local
-                    state space model and subsequently applied back to the
-                    original nonlinear 13 state quaternion vehicle model
-                    to evaluate disturbance rejection and closed-loop
-                    performance.
-                </p>
+                    Developed a modular nonlinear 6-DOF aerospace
+                    vehicle simulation in MATLAB using quaternion
+                    attitude dynamics and rigid body equations of motion.
 
+                    Extended the model through steady flight trim,
+                    numerical linearization, modal and controllability
+                    analysis, and continuous time LQR control design.
 
-                <!-- ------------------------------------------
-                     TECHNICAL AREAS
-                     ------------------------------------------ -->
+                    The controller was developed from a reduced
+                    state space model and applied to the original
+                    nonlinear 13 state vehicle simulation.
 
-                <h3>
-                    Technical Areas
-                </h3>
+                    Nonlinear closed-loop testing was used to evaluate
+                    disturbance rejection and controller performance.
 
-                <p class="project-tags">
-                    MATLAB • 6-DOF Dynamics • Quaternions •
-                    State-Space Modeling • Trim Analysis •
-                    Numerical Linearization • Modal Analysis •
-                    Controllability • LQR • RK4 Integration •
-                    Nonlinear Closed-Loop Simulation
                 </p>
 
 
                 <!-- ------------------------------------------
-                     PROJECT OBJECTIVES
+                     SIMULATION RESULTS
                      ------------------------------------------ -->
 
                 <h3>
-                    Project Objectives
-                </h3>
-
-                <ul>
-
-                    <li>
-                        Develop nonlinear translational and rotational
-                        rigid body equations of motion for a 13 state
-                        aerospace vehicle model.
-                    </li>
-
-                    <li>
-                        Implement scalar-first quaternion attitude
-                        propagation and North East Down/body frame
-                        coordinate transformations.
-                    </li>
-
-                    <li>
-                        Determine a steady flight trim condition and
-                        numerically linearize the nonlinear vehicle
-                        dynamics around the resulting operating point.
-                    </li>
-
-                    <li>
-                        Construct a reduced 12 state perturbation model
-                        suitable for eigenvalue, modal, controllability,
-                        and state-feedback analysis.
-                    </li>
-
-                    <li>
-                        Design an LQR controller using the reduced
-                        linear model and evaluate the controller against
-                        the original nonlinear vehicle simulation.
-                    </li>
-
-                    <li>
-                        Verify numerical integration, state mappings,
-                        linearization, controller design, and nonlinear
-                        closed-loop behavior using an automated MATLAB
-                        regression suite.
-                    </li>
-
-                </ul>
-
-
-                <!-- ------------------------------------------
-                     CORE RESULT FIGURES
-                     ------------------------------------------ -->
-
-                <h3>
-                    Selected Simulation Results
+                    Simulation Results
                 </h3>
 
                 <p>
-                    The figures below summarize the nonlinear open-loop
-                    and LQR closed-loop response. Select the full project
-                    page for the interactive results viewer and detailed
-                    implementation discussion.
+
+                    The figures below summarize the primary nonlinear
+                    open-loop and LQR closed-loop simulation results.
+
                 </p>
 
 
                 <div class="portfolio-result-preview">
 
 
-                    <!-- Result 1 -->
+                    <!-- RESULT 1 -->
 
                     <figure>
 
@@ -262,7 +224,7 @@
                     </figure>
 
 
-                    <!-- Result 2 -->
+                    <!-- RESULT 2 -->
 
                     <figure>
 
@@ -279,7 +241,7 @@
                     </figure>
 
 
-                    <!-- Result 3 -->
+                    <!-- RESULT 3 -->
 
                     <figure>
 
@@ -296,7 +258,7 @@
                     </figure>
 
 
-                    <!-- Result 4 -->
+                    <!-- RESULT 4 -->
 
                     <figure>
 
@@ -316,14 +278,14 @@
 
 
                 <!-- ------------------------------------------
-                     VALIDATION STATUS
+                     VALIDATION
                      ------------------------------------------ -->
 
                 <div class="portfolio-project-validation">
 
                     <span
-                        aria-hidden="true"
                         class="validation-symbol"
+                        aria-hidden="true"
                     >
                         ✓
                     </span>
@@ -337,19 +299,28 @@
 
 
                 <!-- ------------------------------------------
-                     PROJECT ACTION
+                     SKILLS
                      ------------------------------------------ -->
 
-                <div class="portfolio-project-actions">
+                <h3>
+                    Skills
+                </h3>
 
-                    <a
-                        href="projects/gnc-6dof.html"
-                        class="portfolio-project-button"
-                    >
-                        Explore Full Project →
-                    </a>
+                <p class="project-tags">
 
-                </div>
+                    MATLAB •
+                    6-DOF Dynamics •
+                    Quaternions •
+                    State-Space Modeling •
+                    Trim Analysis •
+                    Numerical Linearization •
+                    Modal Analysis •
+                    Controllability •
+                    LQR •
+                    RK4 Integration •
+                    Nonlinear Closed-Loop Simulation
+
+                </p>
 
             </div>
 
@@ -378,7 +349,7 @@
                 </p>
 
                 <p>
-                    Applied state space control and estimation methods
+                    Applied state-space control and estimation methods
                     to analyze vehicle dynamics and evaluate closed-loop
                     system performance.
                 </p>
@@ -463,8 +434,13 @@
                 </h3>
 
                 <p class="project-tags">
-                    MATLAB • Trajectory Analysis • Flight Data Analysis •
-                    Modeling & Simulation • Verification
+
+                    MATLAB •
+                    Trajectory Analysis •
+                    Flight Data Analysis •
+                    Modeling & Simulation •
+                    Verification
+
                 </p>
 
 
@@ -479,7 +455,7 @@
                     </li>
 
                     <li>
-                        Evaluated trajectory and flight system outputs.
+                        Evaluated trajectory and flight-system outputs.
                     </li>
 
                     <li>
@@ -489,14 +465,14 @@
 
                     <li>
                         Investigated simulation discrepancies and supported
-                        improvements to flight performance analysis.
+                        improvements to flight-performance analysis.
                     </li>
 
                 </ul>
 
 
                 <div class="project-image-placeholder">
-                    Trajectory / flight data visualization
+                    Trajectory / flight-data visualization
                 </div>
 
             </div>
@@ -526,9 +502,12 @@
                 </p>
 
                 <p>
-                    Developed and validated a camera-based three dimensional
-                    displacement measurement system for use in a
-                    physics-informed digital twin research platform.
+
+                    Developed and validated a camera-based
+                    three-dimensional displacement measurement system
+                    for use in a physics-informed digital-twin research
+                    platform.
+
                 </p>
 
 
@@ -537,8 +516,13 @@
                 </h3>
 
                 <p class="project-tags">
-                    ROS • Intel RealSense • Sensor Calibration •
-                    System Integration • Verification & Validation
+
+                    ROS •
+                    Intel RealSense •
+                    Sensor Calibration •
+                    System Integration •
+                    Verification & Validation
+
                 </p>
 
 
@@ -549,13 +533,13 @@
                 <ul>
 
                     <li>
-                        Integrated depth-camera sensing with a ROS based
-                        data processing pipeline.
+                        Integrated depth-camera sensing with a ROS-based
+                        data-processing pipeline.
                     </li>
 
                     <li>
                         Developed calibration procedures using controlled
-                        ground truth displacement measurements.
+                        ground-truth displacement measurements.
                     </li>
 
                     <li>
@@ -590,9 +574,12 @@
             </h2>
 
             <p>
-                View my professional experience, background, and contact
-                information on the main portfolio page.
+
+                View my professional experience, background,
+                and contact information on the main portfolio page.
+
             </p>
+
 
             <a
                 class="primary-button"
@@ -617,6 +604,7 @@
         </p>
 
     </footer>
+
 
 </body>
 
