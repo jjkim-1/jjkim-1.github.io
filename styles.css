@@ -2060,3 +2060,35 @@ footer {
     }
 
 }
+
+/* ==========================================================
+   BOTTOM PROJECT NAVIGATION
+   ========================================================== */
+
+.project-end-navigation .project-back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 20px;
+
+    color: #1f2933;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.18s ease,
+        opacity 0.18s ease;
+}
+
+
+.project-end-navigation .project-back-link:hover {
+    transform: translateX(-4px);
+
+    opacity: 0.75;
+
+    text-decoration: none;
+}
