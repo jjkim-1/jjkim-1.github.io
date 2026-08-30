@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -18,37 +19,50 @@
         Nonlinear 6-DOF Flight Dynamics & Control | James Kim
     </title>
 
-    <!--
-        This page is inside /projects/,
-        so styles.css is one directory above it.
-    -->
+
+    <!-- ======================================================
+         STYLESHEET
+         ====================================================== -->
+
     <link
         rel="stylesheet"
         href="../styles.css"
     >
-    <!-- MathJax for technical equations -->
+
+
+    <!-- ======================================================
+         MATHJAX
+         Used for engineering equations in the technical section
+         ====================================================== -->
+
     <script>
-    window.MathJax = {
-        tex: {
-            inlineMath: [
-                ['\\(', '\\)']
-            ],
-            displayMath: [
-                ['\\[', '\\]']
-            ]
-        }
-    };
+        window.MathJax = {
+
+            tex: {
+
+                inlineMath: [
+                    ['\\(', '\\)']
+                ],
+
+                displayMath: [
+                    ['\\[', '\\]']
+                ]
+
+            }
+
+        };
     </script>
 
     <script
-    defer
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-></script>
-    
+        defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+
 </head>
 
 
 <body>
+
 
     <!-- ======================================================
          SITE HEADER
@@ -64,6 +78,7 @@
             >
                 James Kim
             </a>
+
 
             <nav
                 class="site-nav"
@@ -128,22 +143,30 @@
                 Guidance, Navigation & Control Portfolio Project
             </p>
 
+
             <h1 id="project-title">
                 Nonlinear 6-DOF Flight Dynamics & LQR Control
             </h1>
 
+
             <p class="project-hero-summary">
+
                 A MATLAB-based nonlinear six-degree-of-freedom
                 flight dynamics and control simulation for a
-                notional aerospace vehicle. The project combines
-                quaternion attitude dynamics, steady-flight trim,
-                numerical linearization, modal and controllability
-                analysis, LQR state-feedback design, and nonlinear
+                notional aerospace vehicle.
+
+                The project combines quaternion attitude dynamics,
+                steady-flight trim, numerical linearization,
+                modal and controllability analysis,
+                LQR state-feedback design, and nonlinear
                 closed-loop validation.
+
             </p>
 
 
-            <!-- Technical tags -->
+            <!-- ==============================================
+                 TECHNICAL TAGS
+                 ============================================== -->
 
             <div
                 class="project-tags"
@@ -185,7 +208,9 @@
             </div>
 
 
-            <!-- Primary project status -->
+            <!-- ==============================================
+                 PROJECT STATUS
+                 ============================================== -->
 
             <div class="project-status">
 
@@ -204,7 +229,9 @@
             </div>
 
 
-            <!-- Jump directly to results -->
+            <!-- ==============================================
+                 JUMP TO RESULTS
+                 ============================================== -->
 
             <a
                 href="#results"
@@ -241,7 +268,9 @@
             <div class="project-highlight-grid">
 
 
-                <!-- 6-DOF -->
+                <!-- ==========================================
+                     NONLINEAR MODEL
+                     ========================================== -->
 
                 <article class="project-highlight-card">
 
@@ -262,7 +291,9 @@
                 </article>
 
 
-                <!-- Linearization -->
+                <!-- ==========================================
+                     LINEARIZATION
+                     ========================================== -->
 
                 <article class="project-highlight-card">
 
@@ -283,7 +314,9 @@
                 </article>
 
 
-                <!-- Controller -->
+                <!-- ==========================================
+                     CONTROLLER
+                     ========================================== -->
 
                 <article class="project-highlight-card">
 
@@ -304,7 +337,9 @@
                 </article>
 
 
-                <!-- Verification -->
+                <!-- ==========================================
+                     VERIFICATION
+                     ========================================== -->
 
                 <article class="project-highlight-card">
 
@@ -352,6 +387,7 @@
                 <p>
                     The same initial perturbation is applied to the
                     nonlinear open-loop and LQR closed-loop models.
+
                     Select a result below to inspect the controller
                     response.
                 </p>
@@ -378,7 +414,7 @@
                 </button>
 
 
-                <!-- Main figure -->
+                <!-- Main result -->
 
                 <figure class="result-main">
 
@@ -405,10 +441,12 @@
                         </h3>
 
                         <p id="result-main-caption">
+
                             Normalized controller-state error comparison
                             demonstrating disturbance rejection of the
                             nonlinear LQR closed-loop system relative to
                             the open-loop response.
+
                         </p>
 
                     </figcaption>
@@ -441,7 +479,9 @@
             >
 
 
-                <!-- Figure 1 -->
+                <!-- ==========================================
+                     FIGURE 1
+                     ========================================== -->
 
                 <button
                     class="result-thumbnail is-active"
@@ -465,7 +505,9 @@
                 </button>
 
 
-                <!-- Figure 2 -->
+                <!-- ==========================================
+                     FIGURE 2
+                     ========================================== -->
 
                 <button
                     class="result-thumbnail"
@@ -489,7 +531,9 @@
                 </button>
 
 
-                <!-- Figure 3 -->
+                <!-- ==========================================
+                     FIGURE 3
+                     ========================================== -->
 
                 <button
                     class="result-thumbnail"
@@ -513,7 +557,9 @@
                 </button>
 
 
-                <!-- Figure 4 -->
+                <!-- ==========================================
+                     FIGURE 4
+                     ========================================== -->
 
                 <button
                     class="result-thumbnail"
@@ -542,7 +588,7 @@
 
 
         <!-- ==================================================
-             ARCHITECTURE
+             SYSTEM ARCHITECTURE
              ================================================== -->
 
         <section
@@ -565,9 +611,11 @@
 
             <div class="architecture-flow">
 
+
                 <div class="architecture-node">
                     Vehicle Parameters
                 </div>
+
 
                 <div
                     class="architecture-arrow"
@@ -575,72 +623,85 @@
                 >
                     ↓
                 </div>
+
 
                 <div class="architecture-node">
                     Atmosphere + Aerodynamics
                 </div>
 
+
                 <div
                     class="architecture-arrow"
                     aria-hidden="true"
                 >
                     ↓
                 </div>
+
 
                 <div class="architecture-node architecture-node-primary">
                     Nonlinear 6-DOF Plant
                 </div>
 
+
                 <div
                     class="architecture-arrow"
                     aria-hidden="true"
                 >
                     ↓
                 </div>
+
 
                 <div class="architecture-node">
                     Steady-Flight Trim
                 </div>
 
+
                 <div
                     class="architecture-arrow"
                     aria-hidden="true"
                 >
                     ↓
                 </div>
+
 
                 <div class="architecture-node">
                     Reduced Linearization
                 </div>
 
+
                 <div
                     class="architecture-arrow"
                     aria-hidden="true"
                 >
                     ↓
                 </div>
+
 
                 <div class="architecture-node">
                     Modal + Controllability Analysis
                 </div>
 
+
                 <div
                     class="architecture-arrow"
                     aria-hidden="true"
                 >
                     ↓
                 </div>
+
 
                 <div class="architecture-node architecture-node-primary">
                     LQR Controller
                 </div>
 
+
                 <div
                     class="architecture-arrow"
                     aria-hidden="true"
                 >
                     ↓
                 </div>
+
 
                 <div class="architecture-node">
                     Nonlinear Closed-Loop Validation
@@ -653,6 +714,7 @@
 
         <!-- ==================================================
              TECHNICAL DETAILS
+             MATHEMATICAL ENGINEERING IMPLEMENTATION
              ================================================== -->
 
         <section
@@ -671,8 +733,9 @@
                 </h2>
 
                 <p>
-                    Expand a section for additional implementation
-                    details without leaving this page.
+                    Expand a section for the mathematical formulation
+                    and implementation details used in the nonlinear
+                    simulation and control architecture.
                 </p>
 
             </div>
@@ -681,7 +744,9 @@
             <div class="technical-accordion">
 
 
-                <!-- EOM -->
+                <!-- ==========================================
+                     6-DOF EQUATIONS OF MOTION
+                     ========================================== -->
 
                 <details class="technical-detail">
 
@@ -689,33 +754,185 @@
                         6-DOF Equations of Motion
                     </summary>
 
+
                     <div class="technical-detail-content">
 
+
                         <p>
+
                             The nonlinear plant contains body-frame
-                            translational dynamics, rigid-body
-                            rotational dynamics, navigation-frame
-                            position propagation, and quaternion
-                            attitude propagation.
+                            translational dynamics, rigid-body rotational
+                            dynamics, navigation-frame position
+                            propagation, and quaternion attitude
+                            propagation.
+
                         </p>
 
-                        <pre><code>V_dot_b =
-    F_b / m
-    - cross(omega_b, V_b)
-    + C_nb * g_n</code></pre>
 
-                        <pre><code>omega_dot_b =
-    I \ (
-        M_b
-        - cross(omega_b, I * omega_b)
-    )</code></pre>
+                        <h4>
+                            Translational Dynamics
+                        </h4>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            \dot{\mathbf V}_b
+                            =
+                            \frac{\mathbf F_b}{m}
+                            -
+                            \boldsymbol{\omega}_b
+                            \times
+                            \mathbf V_b
+                            +
+                            C_{nb}\mathbf g_n
+                            \]
+
+                        </div>
+
+
+                        <p>
+                            where
+                        </p>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            \mathbf V_b
+                            =
+                            \begin{bmatrix}
+                            u \\
+                            v \\
+                            w
+                            \end{bmatrix},
+                            \qquad
+                            \boldsymbol{\omega}_b
+                            =
+                            \begin{bmatrix}
+                            p \\
+                            q \\
+                            r
+                            \end{bmatrix}
+                            \]
+
+                        </div>
+
+
+                        <p>
+
+                            and gravity in the North-East-Down
+                            navigation frame is
+
+                        </p>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            \mathbf g_n
+                            =
+                            \begin{bmatrix}
+                            0 \\
+                            0 \\
+                            g
+                            \end{bmatrix}.
+                            \]
+
+                        </div>
+
+
+                        <h4>
+                            Rotational Dynamics
+                        </h4>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            \mathbf I
+                            \dot{\boldsymbol{\omega}}_b
+                            =
+                            \mathbf M_b
+                            -
+                            \boldsymbol{\omega}_b
+                            \times
+                            \left(
+                            \mathbf I
+                            \boldsymbol{\omega}_b
+                            \right)
+                            \]
+
+                        </div>
+
+
+                        <p>
+                            or equivalently,
+                        </p>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            \dot{\boldsymbol{\omega}}_b
+                            =
+                            \mathbf I^{-1}
+                            \left[
+                            \mathbf M_b
+                            -
+                            \boldsymbol{\omega}_b
+                            \times
+                            \left(
+                            \mathbf I
+                            \boldsymbol{\omega}_b
+                            \right)
+                            \right].
+                            \]
+
+                        </div>
+
+
+                        <p>
+
+                            Position is propagated in the NED frame using
+                            the body-to-navigation direction cosine matrix:
+
+                        </p>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            \dot{\mathbf p}_n
+                            =
+                            C_{bn}\mathbf V_b
+                            \]
+
+                        </div>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            \mathbf p_n
+                            =
+                            \begin{bmatrix}
+                            p_N \\
+                            p_E \\
+                            p_D
+                            \end{bmatrix}.
+                            \]
+
+                        </div>
 
                     </div>
 
                 </details>
 
 
-                <!-- Quaternion -->
+                <!-- ==========================================
+                     QUATERNION ATTITUDE
+                     ========================================== -->
 
                 <details class="technical-detail">
 
@@ -723,27 +940,108 @@
                         Quaternion Attitude Representation
                     </summary>
 
+
                     <div class="technical-detail-content">
 
+
                         <p>
+
                             A scalar-first unit quaternion represents
-                            body-to-NED orientation. Quaternion
-                            normalization is enforced throughout the
-                            nonlinear RK4 integration process.
+                            body-to-NED orientation:
+
                         </p>
 
-                        <pre><code>x =
-[p_N, p_E, p_D,
- u, v, w,
- q_0, q_1, q_2, q_3,
- p, q, r]^T</code></pre>
+
+                        <div class="math-equation">
+
+                            \[
+                            \mathbf q
+                            =
+                            \begin{bmatrix}
+                            q_0 \\
+                            q_1 \\
+                            q_2 \\
+                            q_3
+                            \end{bmatrix},
+                            \qquad
+                            \|\mathbf q\| = 1.
+                            \]
+
+                        </div>
+
+
+                        <p>
+                            The complete nonlinear vehicle state is
+                        </p>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            \mathbf x
+                            =
+                            \begin{bmatrix}
+                            p_N &
+                            p_E &
+                            p_D &
+                            u &
+                            v &
+                            w &
+                            q_0 &
+                            q_1 &
+                            q_2 &
+                            q_3 &
+                            p &
+                            q &
+                            r
+                            \end{bmatrix}^{T}.
+                            \]
+
+                        </div>
+
+
+                        <p>
+
+                            Quaternion propagation is performed using the
+                            body angular rates:
+
+                        </p>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            \dot{\mathbf q}
+                            =
+                            \frac{1}{2}
+                            \begin{bmatrix}
+                            -q_1 p - q_2 q - q_3 r \\[4pt]
+                            q_0 p + q_2 r - q_3 q \\[4pt]
+                            q_0 q - q_1 r + q_3 p \\[4pt]
+                            q_0 r + q_1 q - q_2 p
+                            \end{bmatrix}.
+                            \]
+
+                        </div>
+
+
+                        <p>
+
+                            Quaternion normalization is enforced during
+                            intermediate RK4 stages and following each
+                            completed integration step to maintain the
+                            unit-norm constraint.
+
+                        </p>
 
                     </div>
 
                 </details>
 
 
-                <!-- Linearization -->
+                <!-- ==========================================
+                     TRIM AND LINEARIZATION
+                     ========================================== -->
 
                 <details class="technical-detail">
 
@@ -751,30 +1049,139 @@
                         Trim & Reduced Linearization
                     </summary>
 
+
                     <div class="technical-detail-content">
 
+
                         <p>
+
                             A steady-flight operating point is solved
-                            numerically at approximately 1000 m
-                            altitude and 300 m/s airspeed.
+                            numerically at approximately 1000 m altitude
+                            and 300 m/s airspeed.
+
                         </p>
+
 
                         <p>
-                            The quaternion is replaced locally by a
-                            three-component attitude-error coordinate,
-                            producing a 12-state reduced model:
+                            The longitudinal trim decision vector is
                         </p>
 
-                        <pre><code>delta_x_dot =
-    A * delta_x
-    + B * delta_u</code></pre>
+
+                        <div class="math-equation">
+
+                            \[
+                            \mathbf z
+                            =
+                            \begin{bmatrix}
+                            \alpha &
+                            \theta &
+                            u_{\mathrm{pitch}} &
+                            u_{\mathrm{thrust}}
+                            \end{bmatrix}^{T}.
+                            \]
+
+                        </div>
+
+
+                        <p>
+
+                            The quaternion state is replaced locally by a
+                            three-component attitude-error coordinate,
+                            producing the reduced perturbation state:
+
+                        </p>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            \delta\mathbf x_r
+                            =
+                            \begin{bmatrix}
+                            \delta p_N &
+                            \delta p_E &
+                            \delta p_D &
+                            \delta u &
+                            \delta v &
+                            \delta w &
+                            \epsilon_x &
+                            \epsilon_y &
+                            \epsilon_z &
+                            \delta p &
+                            \delta q &
+                            \delta r
+                            \end{bmatrix}^{T}.
+                            \]
+
+                        </div>
+
+
+                        <p>
+
+                            The local reduced dynamics are represented by
+                            the state-space model:
+
+                        </p>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            \delta\dot{\mathbf x}
+                            =
+                            A\delta\mathbf x
+                            +
+                            B\delta\mathbf u.
+                            \]
+
+                        </div>
+
+
+                        <p>
+
+                            The attitude error follows the
+                            right-multiplicative quaternion convention:
+
+                        </p>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            \mathbf q_{\mathrm{current}}
+                            =
+                            \mathbf q_{\mathrm{reference}}
+                            \otimes
+                            \mathbf q_{\mathrm{error}}
+                            \]
+
+                        </div>
+
+
+                        <p>
+                            with the local attitude coordinate
+                        </p>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            \boldsymbol{\epsilon}
+                            =
+                            2
+                            \mathbf q_{\mathrm{error},v}.
+                            \]
+
+                        </div>
 
                     </div>
 
                 </details>
 
 
-                <!-- LQR -->
+                <!-- ==========================================
+                     LQR CONTROLLER
+                     ========================================== -->
 
                 <details class="technical-detail">
 
@@ -782,24 +1189,92 @@
                         LQR State-Feedback Controller
                     </summary>
 
+
                     <div class="technical-detail-content">
 
+
                         <p>
-                            A continuous-time Linear Quadratic
-                            Regulator is designed around the reduced
-                            trim linearization.
+
+                            A continuous-time Linear Quadratic Regulator
+                            is designed around the reduced trim
+                            linearization.
+
                         </p>
 
-                        <pre><code>delta_u = -K * delta_x
-
-u_ctrl =
-    u_trim
-    + delta_u</code></pre>
 
                         <p>
-                            The gain matrix is then applied to the
-                            original nonlinear quaternion plant for
-                            closed-loop verification.
+
+                            The LQR controller minimizes the quadratic
+                            performance index:
+
+                        </p>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            J
+                            =
+                            \int_{0}^{\infty}
+                            \left(
+                            \delta\mathbf x^{T}
+                            Q
+                            \delta\mathbf x
+                            +
+                            \delta\mathbf u^{T}
+                            R
+                            \delta\mathbf u
+                            \right)
+                            dt.
+                            \]
+
+                        </div>
+
+
+                        <p>
+                            The resulting perturbation feedback law is
+                        </p>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            \delta\mathbf u
+                            =
+                            -K\delta\mathbf x.
+                            \]
+
+                        </div>
+
+
+                        <p>
+
+                            The command supplied to the nonlinear vehicle
+                            model is
+
+                        </p>
+
+
+                        <div class="math-equation">
+
+                            \[
+                            \mathbf u_{\mathrm{ctrl}}
+                            =
+                            \mathbf u_{\mathrm{trim}}
+                            +
+                            \delta\mathbf u.
+                            \]
+
+                        </div>
+
+
+                        <p>
+
+                            The LQR gain is therefore designed using the
+                            reduced linear model but validated against the
+                            original nonlinear quaternion-based vehicle
+                            plant.
+
                         </p>
 
                     </div>
@@ -807,7 +1282,9 @@ u_ctrl =
                 </details>
 
 
-                <!-- Verification -->
+                <!-- ==========================================
+                     VERIFICATION
+                     ========================================== -->
 
                 <details class="technical-detail">
 
@@ -815,22 +1292,40 @@ u_ctrl =
                         Verification Strategy
                     </summary>
 
+
                     <div class="technical-detail-content">
 
+
                         <p>
-                            The project includes subsystem and
-                            integrated regression tests covering the
-                            numerical, modeling, mapping, linearization,
-                            and control layers of the simulation.
+
+                            The project includes subsystem and integrated
+                            regression tests covering numerical
+                            integration, rigid-body dynamics, reduced-state
+                            mappings, numerical linearization, LQR design,
+                            and nonlinear closed-loop response.
+
                         </p>
 
-                        <pre><code>testReport = runAllTests;</code></pre>
+
+                        <div class="verification-command">
+
+                            <code>
+                                testReport = runAllTests;
+                            </code>
+
+                        </div>
+
 
                         <p>
                             Current validated baseline:
                         </p>
 
-                        <pre><code>OVERALL PROJECT VALIDATION: PASS</code></pre>
+
+                        <div class="validation-result-inline">
+
+                            ✓ OVERALL PROJECT VALIDATION: PASS
+
+                        </div>
 
                     </div>
 
@@ -842,609 +1337,47 @@ u_ctrl =
 
 
         <!-- ==================================================
-             VALIDATION
-             ================================================== -->
-
-        <!-- ==================================================
-     TECHNICAL DETAILS
-     ================================================== -->
-
-<section
-    class="project-section"
-    aria-labelledby="technical-title"
->
-
-    <div class="project-section-heading">
-
-        <p class="section-kicker">
-            Technical Details
-        </p>
-
-        <h2 id="technical-title">
-            Engineering Implementation
-        </h2>
-
-        <p>
-            Expand a section for the mathematical formulation
-            and implementation details used in the nonlinear
-            simulation and control architecture.
-        </p>
-
-    </div>
-
-
-    <div class="technical-accordion">
-
-
-        <!-- ==================================================
-             6-DOF EQUATIONS OF MOTION
-             ================================================== -->
-
-        <details class="technical-detail">
-
-            <summary>
-                6-DOF Equations of Motion
-            </summary>
-
-
-            <div class="technical-detail-content">
-
-                <p>
-                    The nonlinear plant contains body-frame
-                    translational dynamics, rigid-body rotational
-                    dynamics, navigation-frame position
-                    propagation, and quaternion attitude
-                    propagation.
-                </p>
-
-
-                <h4>
-                    Translational Dynamics
-                </h4>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \dot{\mathbf V}_b
-                    =
-                    \frac{\mathbf F_b}{m}
-                    -
-                    \boldsymbol{\omega}_b
-                    \times
-                    \mathbf V_b
-                    +
-                    C_{nb}\mathbf g_n
-                    \]
-
-                </div>
-
-
-                <p>
-                    where
-                </p>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \mathbf V_b
-                    =
-                    \begin{bmatrix}
-                    u \\
-                    v \\
-                    w
-                    \end{bmatrix},
-                    \qquad
-                    \boldsymbol{\omega}_b
-                    =
-                    \begin{bmatrix}
-                    p \\
-                    q \\
-                    r
-                    \end{bmatrix}
-                    \]
-
-                </div>
-
-
-                <p>
-                    and gravity in the North-East-Down
-                    navigation frame is
-                </p>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \mathbf g_n
-                    =
-                    \begin{bmatrix}
-                    0 \\
-                    0 \\
-                    g
-                    \end{bmatrix}.
-                    \]
-
-                </div>
-
-
-                <h4>
-                    Rotational Dynamics
-                </h4>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \mathbf I
-                    \dot{\boldsymbol{\omega}}_b
-                    =
-                    \mathbf M_b
-                    -
-                    \boldsymbol{\omega}_b
-                    \times
-                    \left(
-                    \mathbf I
-                    \boldsymbol{\omega}_b
-                    \right)
-                    \]
-
-                </div>
-
-
-                <p>
-                    or equivalently,
-                </p>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \dot{\boldsymbol{\omega}}_b
-                    =
-                    \mathbf I^{-1}
-                    \left[
-                    \mathbf M_b
-                    -
-                    \boldsymbol{\omega}_b
-                    \times
-                    \left(
-                    \mathbf I
-                    \boldsymbol{\omega}_b
-                    \right)
-                    \right].
-                    \]
-
-                </div>
-
-
-                <p>
-                    Position is propagated in the NED frame using
-                    the body-to-navigation direction cosine matrix:
-                </p>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \dot{\mathbf p}_n
-                    =
-                    C_{bn}\mathbf V_b
-                    \]
-
-                </div>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \mathbf p_n
-                    =
-                    \begin{bmatrix}
-                    p_N \\
-                    p_E \\
-                    p_D
-                    \end{bmatrix}.
-                    \]
-
-                </div>
-
-            </div>
-
-        </details>
-
-
-        <!-- ==================================================
-             QUATERNION ATTITUDE
-             ================================================== -->
-
-        <details class="technical-detail">
-
-            <summary>
-                Quaternion Attitude Representation
-            </summary>
-
-
-            <div class="technical-detail-content">
-
-                <p>
-                    A scalar-first unit quaternion represents
-                    body-to-NED orientation:
-                </p>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \mathbf q
-                    =
-                    \begin{bmatrix}
-                    q_0 \\
-                    q_1 \\
-                    q_2 \\
-                    q_3
-                    \end{bmatrix},
-                    \qquad
-                    \|\mathbf q\| = 1.
-                    \]
-
-                </div>
-
-
-                <p>
-                    The complete nonlinear vehicle state is
-                </p>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \mathbf x
-                    =
-                    \begin{bmatrix}
-                    p_N &
-                    p_E &
-                    p_D &
-                    u &
-                    v &
-                    w &
-                    q_0 &
-                    q_1 &
-                    q_2 &
-                    q_3 &
-                    p &
-                    q &
-                    r
-                    \end{bmatrix}^{T}.
-                    \]
-
-                </div>
-
-
-                <p>
-                    Quaternion propagation is performed using the
-                    body angular rates:
-                </p>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \dot{\mathbf q}
-                    =
-                    \frac{1}{2}
-                    \begin{bmatrix}
-                    -q_1 p - q_2 q - q_3 r \\[4pt]
-                    q_0 p + q_2 r - q_3 q \\[4pt]
-                    q_0 q - q_1 r + q_3 p \\[4pt]
-                    q_0 r + q_1 q - q_2 p
-                    \end{bmatrix}.
-                    \]
-
-                </div>
-
-
-                <p>
-                    Quaternion normalization is enforced during
-                    intermediate RK4 stages and following each
-                    completed integration step to maintain the
-                    unit-norm constraint.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <!-- ==================================================
-             TRIM AND LINEARIZATION
-             ================================================== -->
-
-        <details class="technical-detail">
-
-            <summary>
-                Trim & Reduced Linearization
-            </summary>
-
-
-            <div class="technical-detail-content">
-
-                <p>
-                    A steady-flight operating point is solved
-                    numerically at approximately 1000 m altitude
-                    and 300 m/s airspeed.
-                </p>
-
-
-                <p>
-                    The longitudinal trim decision vector is
-                </p>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \mathbf z
-                    =
-                    \begin{bmatrix}
-                    \alpha &
-                    \theta &
-                    u_{\mathrm{pitch}} &
-                    u_{\mathrm{thrust}}
-                    \end{bmatrix}^{T}.
-                    \]
-
-                </div>
-
-
-                <p>
-                    The quaternion state is replaced locally by a
-                    three-component attitude-error coordinate,
-                    producing the reduced perturbation state:
-                </p>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \delta\mathbf x_r
-                    =
-                    \begin{bmatrix}
-                    \delta p_N &
-                    \delta p_E &
-                    \delta p_D &
-                    \delta u &
-                    \delta v &
-                    \delta w &
-                    \epsilon_x &
-                    \epsilon_y &
-                    \epsilon_z &
-                    \delta p &
-                    \delta q &
-                    \delta r
-                    \end{bmatrix}^{T}.
-                    \]
-
-                </div>
-
-
-                <p>
-                    The local reduced dynamics are represented by
-                    the state-space model
-                </p>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \delta\dot{\mathbf x}
-                    =
-                    A\delta\mathbf x
-                    +
-                    B\delta\mathbf u.
-                    \]
-
-                </div>
-
-
-                <p>
-                    The attitude error follows the
-                    right-multiplicative quaternion convention
-                </p>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \mathbf q_{\mathrm{current}}
-                    =
-                    \mathbf q_{\mathrm{reference}}
-                    \otimes
-                    \mathbf q_{\mathrm{error}}
-                    \]
-
-                </div>
-
-
-                <p>
-                    with the local attitude coordinate
-                </p>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \boldsymbol{\epsilon}
-                    =
-                    2
-                    \mathbf q_{\mathrm{error},v}.
-                    \]
-
-                </div>
-
-            </div>
-
-        </details>
-
-
-        <!-- ==================================================
-             LQR CONTROLLER
-             ================================================== -->
-
-        <details class="technical-detail">
-
-            <summary>
-                LQR State-Feedback Controller
-            </summary>
-
-
-            <div class="technical-detail-content">
-
-                <p>
-                    A continuous-time Linear Quadratic Regulator
-                    is designed around the reduced trim
-                    linearization.
-                </p>
-
-
-                <p>
-                    The LQR controller minimizes the quadratic
-                    performance index
-                </p>
-
-
-                <div class="math-equation">
-
-                    \[
-                    J
-                    =
-                    \int_{0}^{\infty}
-                    \left(
-                    \delta\mathbf x^{T}
-                    Q
-                    \delta\mathbf x
-                    +
-                    \delta\mathbf u^{T}
-                    R
-                    \delta\mathbf u
-                    \right)
-                    dt.
-                    \]
-
-                </div>
-
-
-                <p>
-                    The resulting perturbation feedback law is
-                </p>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \delta\mathbf u
-                    =
-                    -K\delta\mathbf x.
-                    \]
-
-                </div>
-
-
-                <p>
-                    The command supplied to the nonlinear vehicle
-                    model is
-                </p>
-
-
-                <div class="math-equation">
-
-                    \[
-                    \mathbf u_{\mathrm{ctrl}}
-                    =
-                    \mathbf u_{\mathrm{trim}}
-                    +
-                    \delta\mathbf u.
-                    \]
-
-                </div>
-
-
-                <p>
-                    The LQR gain is therefore designed using the
-                    reduced linear model but validated against the
-                    original nonlinear quaternion-based vehicle
-                    plant.
-                </p>
-
-            </div>
-
-        </details>
-
-
-        <!-- ==================================================
-             VERIFICATION
-             ================================================== -->
-
-        <details class="technical-detail">
-
-            <summary>
-                Verification Strategy
-            </summary>
-
-
-            <div class="technical-detail-content">
-
-                <p>
-                    The project includes subsystem and integrated
-                    regression tests covering numerical
-                    integration, rigid-body dynamics, reduced-state
-                    mappings, numerical linearization, LQR design,
-                    and nonlinear closed-loop response.
-                </p>
-
-
-                <div class="verification-command">
-
-                    <code>
-                        testReport = runAllTests;
-                    </code>
-
-                </div>
-
-
-                <p>
-                    Current validated baseline:
-                </p>
-
-
-                <div class="validation-result-inline">
-                    ✓ OVERALL PROJECT VALIDATION: PASS
-                </div>
-
-            </div>
-
-        </details>
-
-    </div>
-
-</section>
-
-        <!-- ==================================================
              PROJECT FOOTER NAVIGATION
              ================================================== -->
 
         <section class="project-end-navigation">
 
             <p>
+
                 Return to the full portfolio to explore additional
                 aerospace engineering projects.
+
             </p>
 
             <a
                 href="../projects.html"
                 class="project-primary-button"
             >
+                <section class="project-source-section">
+
+    <p class="section-kicker">
+        Source Code
+    </p>
+
+    <h2>
+        MATLAB Implementation
+    </h2>
+
+    <p>
+        The complete MATLAB source code, regression tests,
+        simulation outputs, and project documentation are
+        available in the standalone GitHub repository.
+    </p>
+
+    <a
+        href="https://github.com/jjkim-1/6DOF-GNC-Simulation-Project"
+        class="project-primary-button"
+    >
+        View MATLAB Source on GitHub →
+    </a>
+
+</section>
+                
                 ← Back to Projects
             </a>
 
@@ -1454,10 +1387,7 @@ u_ctrl =
 
 
     <!-- ======================================================
-         IMAGE LIGHTBOX
-         ======================================================
-         This will become interactive once project-gallery.js
-         is added.
+         INTERACTIVE RESULT LIGHTBOX
          ====================================================== -->
 
     <div
@@ -1469,6 +1399,9 @@ u_ctrl =
         aria-label="Enlarged project result"
     >
 
+
+        <!-- Close -->
+
         <button
             class="lightbox-close"
             id="lightbox-close"
@@ -1477,6 +1410,9 @@ u_ctrl =
         >
             ×
         </button>
+
+
+        <!-- Previous -->
 
         <button
             class="lightbox-arrow lightbox-arrow-left"
@@ -1487,11 +1423,17 @@ u_ctrl =
             ‹
         </button>
 
+
+        <!-- Enlarged image -->
+
         <img
             id="lightbox-image"
             src="../assets/projects/gnc-6dof/phase2_normalized_error.png"
             alt="Enlarged project result"
         >
+
+
+        <!-- Next -->
 
         <button
             class="lightbox-arrow lightbox-arrow-right"
@@ -1503,9 +1445,15 @@ u_ctrl =
         </button>
 
     </div>
-    
-        <script src="../project-gallery.js"></script>
-    
+
+
+    <!-- ======================================================
+         INTERACTIVE RESULT GALLERY
+         ====================================================== -->
+
+    <script src="../project-gallery.js"></script>
+
+
 </body>
 
 </html>
