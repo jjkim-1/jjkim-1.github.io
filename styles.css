@@ -8,6 +8,12 @@
 
 html {
     scroll-behavior: smooth;
+
+    /*
+       Prevents anchored sections such as #experience and
+       #projects from being hidden underneath the sticky header.
+    */
+    scroll-padding-top: 120px;
 }
 
 body {
@@ -27,8 +33,17 @@ body {
    ========================================================== */
 
 header {
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
     border-bottom: 1px solid #e5e7eb;
-    background: #ffffff;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 nav {
@@ -284,19 +299,128 @@ section h2 {
 
 
 /* ==========================================================
-   CONTACT
+   HOMEPAGE CONTACT
    ========================================================== */
 
 #contact p {
     margin: 8px 0;
 }
 
-#contact a {
-    text-decoration: none;
+
+/*
+   Contact links are intentionally underlined so it is
+   immediately obvious that they are interactive.
+*/
+
+#contact a,
+#contact .contact-link {
+    color: #1f2933;
+
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 4px;
+
+    font-weight: 600;
+
+    transition:
+        opacity 0.18s ease;
 }
 
-#contact a:hover {
+#contact a:hover,
+#contact .contact-link:hover {
+    opacity: 0.68;
+
     text-decoration: underline;
+}
+
+
+/* ==========================================================
+   STANDALONE CONTACT PAGE
+   ========================================================== */
+
+.contact-page {
+    max-width: 1100px;
+
+    margin: auto;
+    padding: 0 30px;
+}
+
+.contact-hero {
+    min-height: calc(100vh - 180px);
+
+    padding: 90px 0;
+}
+
+.contact-hero h2 {
+    margin-bottom: 20px;
+
+    font-size: 42px;
+}
+
+.contact-intro {
+    max-width: 720px;
+
+    margin: 0;
+
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+
+/* ----------------------------------------------------------
+   CONTACT LINK LIST
+   ---------------------------------------------------------- */
+
+.contact-links {
+    max-width: 700px;
+
+    margin-top: 40px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 26px;
+}
+
+.contact-link-item {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.contact-label {
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: #6b7280;
+}
+
+.contact-link-item a {
+    width: fit-content;
+
+    color: #1f2933;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 4px;
+
+    transition:
+        opacity 0.18s ease;
+}
+
+.contact-link-item a:hover {
+    opacity: 0.65;
+}
+
+.contact-return {
+    margin-top: 50px;
 }
 
 
@@ -586,7 +710,7 @@ footer {
 
 
 /* ----------------------------------------------------------
-   OLD PROJECT IMAGE PLACEHOLDER
+   PROJECT IMAGE PLACEHOLDER
    ---------------------------------------------------------- */
 
 .project-image-placeholder {
@@ -611,7 +735,7 @@ footer {
 
 /* ==========================================================
    PROJECTS.HTML
-   CLICKABLE 6-DOF PROJECT TITLE
+   PROJECT TITLE
    ========================================================== */
 
 .portfolio-project-title {
@@ -633,15 +757,8 @@ footer {
 
 /* ==========================================================
    PROJECTS.HTML
-   FOUR-FIGURE RESULT PREVIEW
+   FOUR FIGURE RESULT PREVIEW
    ========================================================== */
-
-/*
-   This grid intentionally keeps the MATLAB figures small.
-
-   The PNG source files can be very large, but these rules
-   prevent them from rendering at their original dimensions.
-*/
 
 .portfolio-result-preview {
     display: grid;
@@ -745,6 +862,11 @@ footer {
     margin-top: 22px;
 }
 
+.portfolio-project-actions-top {
+    margin-top: 14px;
+    margin-bottom: 24px;
+}
+
 .portfolio-project-button {
     display: inline-block;
 
@@ -774,7 +896,7 @@ footer {
 
 
 /* ----------------------------------------------------------
-   FULL PORTFOLIO BUTTON
+   FULL PROJECT PORTFOLIO BUTTON
    ---------------------------------------------------------- */
 
 .view-all-projects {
@@ -798,7 +920,7 @@ footer {
 
 
 /* ==========================================================
-   6-DOF DETAIL PAGE
+   6 DOF DETAIL PAGE
    projects/gnc-6dof.html
    ========================================================== */
 
@@ -822,7 +944,10 @@ footer {
 .site-header {
     border-bottom: 1px solid #e5e7eb;
 
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.96);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .site-header-inner {
@@ -1130,12 +1255,9 @@ footer {
 }
 
 
-/*
+/* ----------------------------------------------------------
    MAIN MATLAB FIGURE
-
-   This is intentionally much smaller than the original
-   720 px layout.
-*/
+   ---------------------------------------------------------- */
 
 .result-main img {
     display: block;
@@ -1432,6 +1554,73 @@ footer {
 
 
 /* ==========================================================
+   TECHNICAL EQUATIONS
+   ========================================================== */
+
+.math-equation {
+    width: 100%;
+    max-width: 760px;
+
+    margin: 20px auto;
+
+    padding: 18px 20px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+
+    background: #fafbfc;
+
+    overflow-x: auto;
+
+    text-align: center;
+}
+
+.technical-detail-content h4 {
+    margin-top: 28px;
+    margin-bottom: 12px;
+
+    font-size: 16px;
+}
+
+.verification-command {
+    max-width: 600px;
+
+    margin: 20px 0;
+
+    padding: 15px 18px;
+
+    border-radius: 7px;
+
+    background: #f3f4f6;
+}
+
+.verification-command code {
+    font-family:
+        SFMono-Regular,
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+    font-size: 14px;
+}
+
+.validation-result-inline {
+    display: inline-block;
+
+    margin-top: 6px;
+
+    padding: 10px 14px;
+
+    border: 1px solid #dfe7e1;
+    border-radius: 7px;
+
+    background: #f5f8f6;
+
+    font-weight: 700;
+}
+
+
+/* ==========================================================
    VALIDATION PANEL
    ========================================================== */
 
@@ -1508,6 +1697,38 @@ footer {
 }
 
 
+/* ----------------------------------------------------------
+   BOTTOM BACK TO PROJECTS LINK
+   ---------------------------------------------------------- */
+
+.project-end-navigation .project-back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 20px;
+
+    color: #1f2933;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.18s ease,
+        opacity 0.18s ease;
+}
+
+.project-end-navigation .project-back-link:hover {
+    transform: translateX(-4px);
+
+    opacity: 0.75;
+
+    text-decoration: none;
+}
+
+
 /* ==========================================================
    RESULT LIGHTBOX
    ========================================================== */
@@ -1521,7 +1742,11 @@ footer {
 
     inset: 0;
 
-    z-index: 1000;
+    /*
+       Higher than the sticky header so the gallery overlay
+       always appears above the navigation.
+    */
+    z-index: 2000;
 
     display: flex;
     align-items: center;
@@ -1603,7 +1828,9 @@ footer {
     }
 
 
-    /* projects.html preview */
+    /* ------------------------------------------------------
+       PROJECTS.HTML PREVIEW
+       ------------------------------------------------------ */
 
     .portfolio-result-preview {
         grid-template-columns:
@@ -1619,7 +1846,9 @@ footer {
     }
 
 
-    /* dedicated result page */
+    /* ------------------------------------------------------
+       DEDICATED RESULT PAGE
+       ------------------------------------------------------ */
 
     .result-viewer {
         max-width: 630px;
@@ -1645,6 +1874,16 @@ footer {
    ========================================================== */
 
 @media (max-width: 700px) {
+
+    /*
+       The mobile navigation occupies more vertical space,
+       so increase anchor spacing accordingly.
+    */
+
+    html {
+        scroll-padding-top: 175px;
+    }
+
 
     nav {
         align-items: flex-start;
@@ -1691,6 +1930,41 @@ footer {
 
     .buttons {
         flex-wrap: wrap;
+    }
+
+
+    /* ------------------------------------------------------
+       CONTACT PAGE
+       ------------------------------------------------------ */
+
+    .contact-page {
+        padding: 0 20px;
+    }
+
+    .contact-hero {
+        min-height: auto;
+
+        padding: 65px 0;
+    }
+
+    .contact-hero h2 {
+        font-size: 34px;
+    }
+
+    .contact-intro {
+        font-size: 17px;
+    }
+
+    .contact-links {
+        gap: 22px;
+    }
+
+    .contact-link-item a {
+        max-width: 100%;
+
+        font-size: 16px;
+
+        overflow-wrap: anywhere;
     }
 
 
@@ -1754,7 +2028,7 @@ footer {
 
 
     /* ------------------------------------------------------
-       6-DOF DETAIL HEADER
+       6 DOF DETAIL HEADER
        ------------------------------------------------------ */
 
     .site-header-inner {
@@ -1803,8 +2077,6 @@ footer {
 
     /* ------------------------------------------------------
        PROJECTS.HTML RESULT PREVIEW
-
-       Horizontal swipe layout keeps the plots readable.
        ------------------------------------------------------ */
 
     .portfolio-result-preview {
@@ -1872,13 +2144,15 @@ footer {
     }
 
 
-    /* Arrows move below the main image */
+    /* ------------------------------------------------------
+       RESULT ARROWS
+       ------------------------------------------------------ */
 
     .result-arrow {
+        position: static;
+
         width: 38px;
         height: 38px;
-
-        position: static;
     }
 
     .result-arrow-left {
@@ -1896,7 +2170,9 @@ footer {
     }
 
 
-    /* Thumbnail grid */
+    /* ------------------------------------------------------
+       RESULT THUMBNAILS
+       ------------------------------------------------------ */
 
     .result-thumbnails {
         display: grid;
@@ -1958,6 +2234,17 @@ footer {
 
 
     /* ------------------------------------------------------
+       TECHNICAL EQUATIONS
+       ------------------------------------------------------ */
+
+    .math-equation {
+        padding: 14px 10px;
+
+        font-size: 0.92rem;
+    }
+
+
+    /* ------------------------------------------------------
        LIGHTBOX
        ------------------------------------------------------ */
 
@@ -1978,117 +2265,4 @@ footer {
         right: 8px;
     }
 
-}
-
-/* ==========================================================
-   TECHNICAL EQUATIONS
-   ========================================================== */
-
-.math-equation {
-    width: 100%;
-    max-width: 760px;
-
-    margin: 20px auto;
-
-    padding: 18px 20px;
-
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-
-    background: #fafbfc;
-
-    overflow-x: auto;
-
-    text-align: center;
-}
-
-
-.technical-detail-content h4 {
-    margin-top: 28px;
-    margin-bottom: 12px;
-
-    font-size: 16px;
-}
-
-
-.verification-command {
-    max-width: 600px;
-
-    margin: 20px 0;
-
-    padding: 15px 18px;
-
-    border-radius: 7px;
-
-    background: #f3f4f6;
-}
-
-
-.verification-command code {
-    font-family:
-        SFMono-Regular,
-        Consolas,
-        "Liberation Mono",
-        monospace;
-
-    font-size: 14px;
-}
-
-
-.validation-result-inline {
-    display: inline-block;
-
-    margin-top: 6px;
-
-    padding: 10px 14px;
-
-    border: 1px solid #dfe7e1;
-    border-radius: 7px;
-
-    background: #f5f8f6;
-
-    font-weight: 700;
-}
-
-
-@media (max-width: 640px) {
-
-    .math-equation {
-        padding: 14px 10px;
-
-        font-size: 0.92rem;
-    }
-
-}
-
-/* ==========================================================
-   BOTTOM PROJECT NAVIGATION
-   ========================================================== */
-
-.project-end-navigation .project-back-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-top: 20px;
-
-    color: #1f2933;
-
-    font-size: 17px;
-    font-weight: 700;
-
-    text-decoration: none;
-
-    transition:
-        transform 0.18s ease,
-        opacity 0.18s ease;
-}
-
-
-.project-end-navigation .project-back-link:hover {
-    transform: translateX(-4px);
-
-    opacity: 0.75;
-
-    text-decoration: none;
 }
