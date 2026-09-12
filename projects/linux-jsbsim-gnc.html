@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Linux based JSBSim flight dynamics, state estimation, optimal control, robust control, and Monte Carlo GNC project."
+    >
+
+    <title>
+        Linux JSBSim GNC Simulation | James Kim
+    </title>
+
+
+    <!-- ======================================================
+         STYLESHEET
+         ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../styles.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ======================================================
+         SITE HEADER
+         ====================================================== -->
+
+    <header class="site-header">
+
+        <div class="site-header-inner">
+
+            <a
+                href="../index.html"
+                class="site-logo"
+            >
+                James Kim
+            </a>
+
+
+            <nav
+                class="site-nav"
+                aria-label="Primary navigation"
+            >
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a
+                    href="../projects.html"
+                    aria-current="page"
+                >
+                    Projects
+                </a>
+
+                <a href="../resume.html">
+                    Resume
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ======================================================
+         MAIN PROJECT CONTENT
+         ====================================================== -->
+
+    <main class="project-detail-page">
+
+
+        <!-- ==================================================
+             BACK NAVIGATION
+             ================================================== -->
+
+        <div class="project-back-row">
+
+            <a
+                href="../projects.html"
+                class="project-back-link"
+            >
+                ← Back to Projects
+            </a>
+
+        </div>
+
+
+        <!-- ==================================================
+             PROJECT HERO
+             ================================================== -->
+
+        <section
+            class="project-hero"
+            aria-labelledby="project-title"
+        >
+
+            <p class="project-eyebrow">
+                Guidance, Navigation & Control Portfolio Project
+            </p>
+
+
+            <h1 id="project-title">
+                Linux JSBSim State Estimation & Robust Flight Control
+            </h1>
+
+
+            <p class="project-hero-summary">
+
+                A Python and Linux based flight dynamics and control
+                project using JSBSim to evaluate state estimation,
+                optimal control, actuator nonlinearities, robust
+                control, and nonlinear closed-loop performance.
+
+                The project progresses from aircraft trim and
+                longitudinal linearization through LQR, Kalman state
+                estimation, LQG, LQG/LTR, H-infinity control, and
+                Monte Carlo robustness analysis.
+
+            </p>
+
+
+            <!-- Technical tags -->
+
+            <div
+                class="project-tags"
+                aria-label="Project technologies"
+            >
+
+                <span class="project-tag">
+                    Linux
+                </span>
+
+                <span class="project-tag">
+                    Python
+                </span>
+
+                <span class="project-tag">
+                    JSBSim
+                </span>
+
+                <span class="project-tag">
+                    State Space
+                </span>
+
+                <span class="project-tag">
+                    LQR
+                </span>
+
+                <span class="project-tag">
+                    Kalman LQE
+                </span>
+
+                <span class="project-tag">
+                    LQG
+                </span>
+
+                <span class="project-tag">
+                    LQG/LTR
+                </span>
+
+                <span class="project-tag">
+                    H-Infinity
+                </span>
+
+                <span class="project-tag">
+                    Monte Carlo
+                </span>
+
+            </div>
+
+
+            <!-- Project status -->
+
+            <div class="project-status">
+
+                <span
+                    class="status-indicator"
+                    aria-hidden="true"
+                >
+                    ✓
+                </span>
+
+                <span>
+                    Nonlinear Validation:
+                    <strong>COMPLETE</strong>
+                </span>
+
+            </div>
+
+
+            <div class="portfolio-project-actions">
+
+                <a
+                    href="#results"
+                    class="project-primary-button"
+                >
+                    Explore Results ↓
+                </a>
+
+                <a
+                    href="https://github.com/jjkim-1/linux-jsbsim-gnc"
+                    class="project-primary-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Source Code →
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             ENGINEERING OVERVIEW
+             ================================================== -->
+
+        <section
+            class="project-section"
+            aria-labelledby="highlights-title"
+        >
+
+            <div class="project-section-heading">
+
+                <p class="section-kicker">
+                    Engineering Overview
+                </p>
+
+                <h2 id="highlights-title">
+                    Key Technical Components
+                </h2>
+
+            </div>
+
+
+            <div class="project-highlight-grid">
+
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        Nonlinear Plant
+                    </h3>
+
+                    <p class="highlight-value">
+                        JSBSim C172
+                    </p>
+
+                    <p>
+                        Nonlinear aircraft dynamics are simulated in
+                        JSBSim and evaluated about trimmed steady
+                        flight conditions across multiple airspeeds
+                        and altitudes.
+                    </p>
+
+                </article>
+
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        State Estimation
+                    </h3>
+
+                    <p class="highlight-value">
+                        Kalman LQE
+                    </p>
+
+                    <p>
+                        A state estimator reconstructs the reduced
+                        longitudinal state from noisy airspeed,
+                        pitch-rate, and pitch-attitude measurements.
+                    </p>
+
+                </article>
+
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        Control
+                    </h3>
+
+                    <p class="highlight-value">
+                        LQG / LTR / H∞
+                    </p>
+
+                    <p>
+                        Optimal output-feedback and robust dynamic
+                        controllers are evaluated using the same
+                        nonlinear aircraft and actuator environment.
+                    </p>
+
+                </article>
+
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        Robustness
+                    </h3>
+
+                    <p class="highlight-value">
+                        50 Paired Cases
+                    </p>
+
+                    <p>
+                        Paired Monte Carlo testing varies airspeed,
+                        altitude, pitch disturbance, and sensor-noise
+                        realizations while preserving identical test
+                        conditions between controllers.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             DEVELOPMENT APPROACH
+             ================================================== -->
+
+        <section
+            class="project-section"
+            aria-labelledby="development-title"
+        >
+
+            <div class="project-section-heading">
+
+                <p class="section-kicker">
+                    Development Approach
+                </p>
+
+                <h2 id="development-title">
+                    From Flight Model to Robust Control
+                </h2>
+
+            </div>
+
+
+            <div class="project-highlight-grid">
+
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        01
+                    </h3>
+
+                    <p class="highlight-value">
+                        Trim & Linearization
+                    </p>
+
+                    <p>
+                        Established a steady flight reference condition
+                        and extracted a reduced longitudinal state-space
+                        representation from the nonlinear JSBSim model.
+                    </p>
+
+                </article>
+
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        02
+                    </h3>
+
+                    <p class="highlight-value">
+                        LQR & Actuator Analysis
+                    </p>
+
+                    <p>
+                        Designed state feedback and characterized
+                        nonlinear elevator hysteresis before developing
+                        compensation for closed-loop implementation.
+                    </p>
+
+                </article>
+
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        03
+                    </h3>
+
+                    <p class="highlight-value">
+                        LQE & LQG
+                    </p>
+
+                    <p>
+                        Integrated Kalman state estimation with LQR
+                        feedback to create an output-feedback controller
+                        using simulated sensor measurements.
+                    </p>
+
+                </article>
+
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        04
+                    </h3>
+
+                    <p class="highlight-value">
+                        Robust Control
+                    </p>
+
+                    <p>
+                        Extended the controller study to LQG/LTR and
+                        dynamic H-infinity synthesis, followed by
+                        nonlinear operating-point and Monte Carlo
+                        comparison.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             RESULTS
+             ================================================== -->
+
+        <section
+            class="project-section project-results-section"
+            id="results"
+            aria-labelledby="results-title"
+        >
+
+            <div class="project-section-heading">
+
+                <p class="section-kicker">
+                    Nonlinear Validation
+                </p>
+
+                <h2 id="results-title">
+                    Controller Performance & Robustness
+                </h2>
+
+                <p>
+                    The final analysis compares LQG/LTR and H-infinity
+                    control using nonlinear JSBSim simulations,
+                    multiple operating points, and paired Monte Carlo
+                    cases.
+                </p>
+
+            </div>
+
+
+            <!-- ==================================================
+                 MAIN RESULT VIEWER
+                 ================================================== -->
+
+            <div class="result-viewer">
+
+
+                <button
+                    class="result-arrow result-arrow-left"
+                    id="result-prev"
+                    type="button"
+                    aria-label="Show previous result"
+                >
+                    ‹
+                </button>
+
+
+                <figure class="result-main">
+
+                    <button
+                        class="result-image-button"
+                        id="result-image-button"
+                        type="button"
+                        aria-label="Enlarge result figure"
+                    >
+
+                        <img
+                            id="result-main-image"
+                            src="../assets/linux-jsbsim-gnc/portfolio_operating_point_robustness.png"
+                            alt="Nonlinear operating point robustness comparison between LQG LTR and H infinity control"
+                        >
+
+                    </button>
+
+
+                    <figcaption>
+
+                        <h3 id="result-main-title">
+                            Nonlinear Operating-Point Robustness
+                        </h3>
+
+                        <p id="result-main-caption">
+                            Pitch regulation is evaluated across
+                            airspeeds from 80 to 100 knots and
+                            altitudes from 2000 to 4000 feet using
+                            the same nonlinear JSBSim aircraft model.
+                        </p>
+
+                    </figcaption>
+
+                </figure>
+
+
+                <button
+                    class="result-arrow result-arrow-right"
+                    id="result-next"
+                    type="button"
+                    aria-label="Show next result"
+                >
+                    ›
+                </button>
+
+            </div>
+
+
+            <!-- ==================================================
+                 RESULT THUMBNAILS
+                 ================================================== -->
+
+            <div
+                class="result-thumbnails"
+                role="group"
+                aria-label="Select result figure"
+            >
+
+
+                <!-- RESULT 1 -->
+
+                <button
+                    class="result-thumbnail is-active"
+                    type="button"
+                    data-index="0"
+                    data-image="../assets/linux-jsbsim-gnc/portfolio_operating_point_robustness.png"
+                    data-title="Nonlinear Operating-Point Robustness"
+                    data-caption="Pitch regulation comparison across 80, 90, and 100 knot trim conditions and altitudes from 2000 to 4000 feet."
+                    aria-label="Show operating point robustness result"
+                >
+
+                    <img
+                        src="../assets/linux-jsbsim-gnc/portfolio_operating_point_robustness.png"
+                        alt=""
+                    >
+
+                    <span>
+                        Operating Points
+                    </span>
+
+                </button>
+
+
+                <!-- RESULT 2 -->
+
+                <button
+                    class="result-thumbnail"
+                    type="button"
+                    data-index="1"
+                    data-image="../assets/linux-jsbsim-gnc/portfolio_monte_carlo_pitch.png"
+                    data-title="Paired Monte Carlo Pitch Regulation"
+                    data-caption="Fifty paired nonlinear cases compare final pitch RMS under identical randomized airspeed, altitude, disturbance, and sensor-noise conditions."
+                    aria-label="Show paired Monte Carlo pitch result"
+                >
+
+                    <img
+                        src="../assets/linux-jsbsim-gnc/portfolio_monte_carlo_pitch.png"
+                        alt=""
+                    >
+
+                    <span>
+                        Monte Carlo
+                    </span>
+
+                </button>
+
+
+                <!-- RESULT 3 -->
+
+                <button
+                    class="result-thumbnail"
+                    type="button"
+                    data-index="2"
+                    data-image="../assets/linux-jsbsim-gnc/portfolio_control_tradeoff.png"
+                    data-title="Regulation-Control Tradeoff"
+                    data-caption="Comparison of pitch-regulation performance and total control variation for the final LQG/LTR and H-infinity controllers."
+                    aria-label="Show regulation control tradeoff"
+                >
+
+                    <img
+                        src="../assets/linux-jsbsim-gnc/portfolio_control_tradeoff.png"
+                        alt=""
+                    >
+
+                    <span>
+                        Control Tradeoff
+                    </span>
+
+                </button>
+
+
+                <!-- RESULT 4 -->
+
+                <button
+                    class="result-thumbnail"
+                    type="button"
+                    data-index="3"
+                    data-image="../assets/linux-jsbsim-gnc/portfolio_paired_pitch_difference.png"
+                    data-title="Paired Controller Comparison"
+                    data-caption="Run-by-run pitch RMS difference between H-infinity and LQG/LTR across the paired nonlinear Monte Carlo experiment."
+                    aria-label="Show paired pitch difference"
+                >
+
+                    <img
+                        src="../assets/linux-jsbsim-gnc/portfolio_paired_pitch_difference.png"
+                        alt=""
+                    >
+
+                    <span>
+                        Paired Difference
+                    </span>
+
+                </button>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             FINAL PERFORMANCE
+             ================================================== -->
+
+        <section
+            class="project-section"
+            aria-labelledby="performance-title"
+        >
+
+            <div class="project-section-heading">
+
+                <p class="section-kicker">
+                    Final Comparison
+                </p>
+
+                <h2 id="performance-title">
+                    Nonlinear Performance Summary
+                </h2>
+
+            </div>
+
+
+            <div class="project-highlight-grid">
+
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        Operating Points
+                    </h3>
+
+                    <p class="highlight-value">
+                        9 Cases
+                    </p>
+
+                    <p>
+                        Three airspeeds and three altitudes were used
+                        to evaluate nonlinear controller behavior away
+                        from the original design condition.
+                    </p>
+
+                </article>
+
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        Monte Carlo
+                    </h3>
+
+                    <p class="highlight-value">
+                        50 / 50
+                    </p>
+
+                    <p>
+                        LQG/LTR produced lower pitch RMS than the
+                        H-infinity controller in all fifty paired
+                        nonlinear Monte Carlo cases.
+                    </p>
+
+                </article>
+
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        LQG/LTR
+                    </h3>
+
+                    <p class="highlight-value">
+                        0.189° Mean RMS
+                    </p>
+
+                    <p>
+                        Mean pitch RMS across the nine operating-point
+                        cases remained below approximately
+                        two tenths of a degree.
+                    </p>
+
+                </article>
+
+
+                <article class="project-highlight-card">
+
+                    <h3>
+                        Design Insight
+                    </h3>
+
+                    <p class="highlight-value">
+                        Robustness Trade Study
+                    </p>
+
+                    <p>
+                        The final comparison demonstrates that robust
+                        controller synthesis does not automatically
+                        guarantee superior nonlinear implementation
+                        when actuator dynamics and control activity
+                        are included.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             PROJECT TAKEAWAY
+             ================================================== -->
+
+        <section
+            class="project-section"
+            aria-labelledby="takeaway-title"
+        >
+
+            <div class="project-section-heading">
+
+                <p class="section-kicker">
+                    Engineering Takeaway
+                </p>
+
+                <h2 id="takeaway-title">
+                    What This Project Demonstrates
+                </h2>
+
+            </div>
+
+
+            <p class="project-hero-summary">
+
+                This project demonstrates a complete controls workflow
+                implemented in a Linux development environment:
+                nonlinear flight simulation, trim and linearization,
+                controllability and observability analysis, state
+                estimation, optimal control, actuator characterization,
+                robust control synthesis, operating-point testing, and
+                Monte Carlo validation.
+
+                The final controller comparison also highlights the
+                importance of validating linear control designs against
+                nonlinear vehicle and actuator behavior rather than
+                relying only on nominal state-space performance.
+
+            </p>
+
+
+            <div class="portfolio-project-actions">
+
+                <a
+                    href="https://github.com/jjkim-1/linux-jsbsim-gnc"
+                    class="project-primary-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View GitHub Repository →
+                </a>
+
+                <a
+                    href="../projects.html"
+                    class="project-primary-button"
+                >
+                    Back to Projects
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ======================================================
+         RESULT IMAGE MODAL
+         ====================================================== -->
+
+    <div
+        class="result-modal"
+        id="result-modal"
+        aria-hidden="true"
+    >
+
+        <button
+            class="result-modal-close"
+            id="result-modal-close"
+            type="button"
+            aria-label="Close enlarged result"
+        >
+            ×
+        </button>
+
+        <img
+            id="result-modal-image"
+            src=""
+            alt=""
+        >
+
+    </div>
+
+
+    <!-- ======================================================
+         PROJECT GALLERY SCRIPT
+         ====================================================== -->
+
+    <script src="../project-gallery.js"></script>
+
+
+</body>
+
+</html>
