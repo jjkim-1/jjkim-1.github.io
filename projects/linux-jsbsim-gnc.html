@@ -29,6 +29,29 @@
         href="../styles.css"
     >
 
+
+    <!-- ======================================================
+         PAGE-SPECIFIC FOOTER NAVIGATION
+         ====================================================== -->
+
+    <style>
+
+        .project-source-navigation {
+            text-align: center;
+            padding: 0 0 55px;
+        }
+
+        .project-back-navigation {
+            text-align: center;
+            padding: 0 0 70px;
+        }
+
+        .project-back-navigation .project-primary-button {
+            margin-top: 0;
+        }
+
+    </style>
+
 </head>
 
 
@@ -93,7 +116,7 @@
 
             <a
                 href="../projects.html"
-                class="project-back-link"
+                class="project-primary-button"
             >
                 ← Back to Projects
             </a>
@@ -109,11 +132,6 @@
             class="project-hero"
             aria-labelledby="project-title"
         >
-
-            <p class="project-eyebrow">
-                Guidance, Navigation & Control Portfolio Project
-            </p>
-
 
             <h1 id="project-title">
                 Linux JSBSim State Estimation & Robust Flight Control
@@ -185,31 +203,20 @@
             </div>
 
 
-            <div class="portfolio-project-actions">
+            <!-- Explore results only -->
 
-                <a
-                    href="#results"
-                    class="project-primary-button"
-                >
-                    Explore Results ↓
-                </a>
-
-                <a
-                    href="https://github.com/jjkim-1/linux-jsbsim-gnc"
-                    class="project-primary-button"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    View Source Code →
-                </a>
-
-            </div>
+            <a
+                href="#results"
+                class="project-primary-button"
+            >
+                Explore Results ↓
+            </a>
 
         </section>
 
 
         <!-- ==================================================
-             ENGINEERING OVERVIEW
+             KEY TECHNICAL COMPONENTS
              ================================================== -->
 
         <section
@@ -218,10 +225,6 @@
         >
 
             <div class="project-section-heading">
-
-                <p class="section-kicker">
-                    Engineering Overview
-                </p>
 
                 <h2 id="highlights-title">
                     Key Technical Components
@@ -232,6 +235,8 @@
 
             <div class="project-highlight-grid">
 
+
+                <!-- Nonlinear Plant -->
 
                 <article class="project-highlight-card">
 
@@ -253,6 +258,8 @@
                 </article>
 
 
+                <!-- State Estimation -->
+
                 <article class="project-highlight-card">
 
                     <h3>
@@ -272,6 +279,8 @@
                 </article>
 
 
+                <!-- Control -->
+
                 <article class="project-highlight-card">
 
                     <h3>
@@ -290,6 +299,8 @@
 
                 </article>
 
+
+                <!-- Robustness -->
 
                 <article class="project-highlight-card">
 
@@ -317,7 +328,7 @@
 
 
         <!-- ==================================================
-             DEVELOPMENT APPROACH
+             DEVELOPMENT PROCESS
              ================================================== -->
 
         <section
@@ -326,10 +337,6 @@
         >
 
             <div class="project-section-heading">
-
-                <p class="section-kicker">
-                    Development Approach
-                </p>
 
                 <h2 id="development-title">
                     From Flight Model to Robust Control
@@ -426,10 +433,6 @@
         >
 
             <div class="project-section-heading">
-
-                <p class="section-kicker">
-                    Nonlinear Validation
-                </p>
 
                 <h2 id="results-title">
                     Controller Performance & Robustness
@@ -623,7 +626,7 @@
 
 
         <!-- ==================================================
-             FINAL PERFORMANCE
+             PERFORMANCE SUMMARY
              ================================================== -->
 
         <section
@@ -632,10 +635,6 @@
         >
 
             <div class="project-section-heading">
-
-                <p class="section-kicker">
-                    Final Comparison
-                </p>
 
                 <h2 id="performance-title">
                     Nonlinear Performance Summary
@@ -646,6 +645,8 @@
 
             <div class="project-highlight-grid">
 
+
+                <!-- Operating Points -->
 
                 <article class="project-highlight-card">
 
@@ -666,6 +667,8 @@
                 </article>
 
 
+                <!-- Monte Carlo -->
+
                 <article class="project-highlight-card">
 
                     <h3>
@@ -685,6 +688,8 @@
                 </article>
 
 
+                <!-- LQG/LTR -->
+
                 <article class="project-highlight-card">
 
                     <h3>
@@ -703,6 +708,8 @@
 
                 </article>
 
+
+                <!-- Design Insight -->
 
                 <article class="project-highlight-card">
 
@@ -731,66 +738,37 @@
 
 
         <!-- ==================================================
-             PROJECT TAKEAWAY
+             SOURCE CODE
              ================================================== -->
 
-        <section
-            class="project-section"
-            aria-labelledby="takeaway-title"
-        >
+        <div class="project-source-navigation">
 
-            <div class="project-section-heading">
+            <a
+                href="https://github.com/jjkim-1/linux-jsbsim-gnc"
+                class="project-primary-button"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                View Source Code →
+            </a>
 
-                <p class="section-kicker">
-                    Engineering Takeaway
-                </p>
-
-                <h2 id="takeaway-title">
-                    What This Project Demonstrates
-                </h2>
-
-            </div>
+        </div>
 
 
-            <p class="project-hero-summary">
+        <!-- ==================================================
+             BACK TO PROJECTS
+             ================================================== -->
 
-                This project demonstrates a complete controls workflow
-                implemented in a Linux development environment:
-                nonlinear flight simulation, trim and linearization,
-                controllability and observability analysis, state
-                estimation, optimal control, actuator characterization,
-                robust control synthesis, operating-point testing, and
-                Monte Carlo validation.
+        <div class="project-back-navigation">
 
-                The final controller comparison also highlights the
-                importance of validating linear control designs against
-                nonlinear vehicle and actuator behavior rather than
-                relying only on nominal state-space performance.
+            <a
+                href="../projects.html"
+                class="project-primary-button"
+            >
+                ← Back to Projects
+            </a>
 
-            </p>
-
-
-            <div class="portfolio-project-actions">
-
-                <a
-                    href="https://github.com/jjkim-1/linux-jsbsim-gnc"
-                    class="project-primary-button"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    View GitHub Repository →
-                </a>
-
-                <a
-                    href="../projects.html"
-                    class="project-primary-button"
-                >
-                    Back to Projects
-                </a>
-
-            </div>
-
-        </section>
+        </div>
 
 
     </main>
