@@ -24,10 +24,38 @@
         href="styles.css"
     >
 
+
+    <!-- ======================================================
+         PROJECT PAGE LAYOUT
+         ====================================================== -->
+
     <style>
 
         .projects-page .project-detail {
             grid-template-columns: minmax(0, 1fr);
+        }
+
+
+        /*
+            Remove the divider between the final project
+            and the Back to Portfolio button.
+        */
+
+        .projects-page .project-detail-last {
+            border-bottom: none;
+        }
+
+
+        /*
+            The original project-return element was a <section>,
+            which inherited the site's section divider.
+
+            It is now a <div>, preserving the existing spacing
+            and button styling without the extra divider.
+        */
+
+        .project-return-button-only {
+            padding: 70px 0;
         }
 
     </style>
@@ -94,10 +122,6 @@
 
         <section class="projects-intro">
 
-            <p class="project-page-label">
-                ENGINEERING PORTFOLIO
-            </p>
-
             <h2>
                 Technical Personal Projects
             </h2>
@@ -123,15 +147,19 @@
 
             <div class="project-content">
 
-                <p class="project-category">
-                    Flight Dynamics & Control
-                </p>
 
+                <!-- ------------------------------------------
+                     TITLE
+                     ------------------------------------------ -->
 
                 <h2 class="portfolio-project-title">
                     Nonlinear 6-DOF Flight Dynamics & LQR Control
                 </h2>
 
+
+                <!-- ------------------------------------------
+                     EXPLORE FULL PROJECT
+                     ------------------------------------------ -->
 
                 <div
                     class="portfolio-project-actions
@@ -148,13 +176,9 @@
                 </div>
 
 
-                <p class="project-subtitle">
-
-                    MATLAB Based Nonlinear Flight Dynamics,
-                    Linearization, and Closed-Loop Control
-
-                </p>
-
+                <!-- ------------------------------------------
+                     DESCRIPTION
+                     ------------------------------------------ -->
 
                 <p>
 
@@ -178,6 +202,10 @@
                 </p>
 
 
+                <!-- ------------------------------------------
+                     TECHNICAL AREAS
+                     ------------------------------------------ -->
+
                 <h3>
                     Technical Areas
                 </h3>
@@ -199,6 +227,10 @@
                 </p>
 
 
+                <!-- ------------------------------------------
+                     SIMULATION RESULTS
+                     ------------------------------------------ -->
+
                 <h3>
                     Simulation Results
                 </h3>
@@ -212,6 +244,9 @@
 
 
                 <div class="portfolio-result-preview">
+
+
+                    <!-- RESULT 1 -->
 
                     <figure>
 
@@ -228,6 +263,8 @@
                     </figure>
 
 
+                    <!-- RESULT 2 -->
+
                     <figure>
 
                         <img
@@ -243,6 +280,8 @@
                     </figure>
 
 
+                    <!-- RESULT 3 -->
+
                     <figure>
 
                         <img
@@ -257,6 +296,8 @@
 
                     </figure>
 
+
+                    <!-- RESULT 4 -->
 
                     <figure>
 
@@ -284,19 +325,23 @@
              LINUX JSBSIM STATE ESTIMATION & ROBUST FLIGHT CONTROL
              ================================================== -->
 
-        <section class="project-detail">
+        <section class="project-detail project-detail-last">
 
             <div class="project-content">
 
-                <p class="project-category">
-                    State Estimation & Robust Flight Control
-                </p>
 
+                <!-- ------------------------------------------
+                     TITLE
+                     ------------------------------------------ -->
 
                 <h2 class="portfolio-project-title">
                     Linux JSBSim State Estimation & Robust Flight Control
                 </h2>
 
+
+                <!-- ------------------------------------------
+                     EXPLORE FULL PROJECT
+                     ------------------------------------------ -->
 
                 <div
                     class="portfolio-project-actions
@@ -313,13 +358,9 @@
                 </div>
 
 
-                <p class="project-subtitle">
-
-                    Python and JSBSim Based Flight Dynamics,
-                    State Estimation, and Robust Control
-
-                </p>
-
+                <!-- ------------------------------------------
+                     DESCRIPTION
+                     ------------------------------------------ -->
 
                 <p>
 
@@ -346,6 +387,10 @@
                 </p>
 
 
+                <!-- ------------------------------------------
+                     TECHNICAL AREAS
+                     ------------------------------------------ -->
+
                 <h3>
                     Technical Areas
                 </h3>
@@ -370,6 +415,10 @@
                 </p>
 
 
+                <!-- ------------------------------------------
+                     SIMULATION RESULTS
+                     ------------------------------------------ -->
+
                 <h3>
                     Simulation Results
                 </h3>
@@ -386,6 +435,9 @@
 
                 <div class="portfolio-result-preview">
 
+
+                    <!-- RESULT 1 -->
+
                     <figure>
 
                         <img
@@ -400,6 +452,8 @@
 
                     </figure>
 
+
+                    <!-- RESULT 2 -->
 
                     <figure>
 
@@ -416,6 +470,8 @@
                     </figure>
 
 
+                    <!-- RESULT 3 -->
+
                     <figure>
 
                         <img
@@ -430,6 +486,8 @@
 
                     </figure>
 
+
+                    <!-- RESULT 4 -->
 
                     <figure>
 
@@ -454,22 +512,10 @@
 
 
         <!-- ==================================================
-             RETURN TO MAIN PORTFOLIO
+             BACK TO MAIN PORTFOLIO
              ================================================== -->
 
-        <section class="project-return">
-
-            <h2>
-                Return to Portfolio
-            </h2>
-
-            <p>
-
-                View my professional experience, background,
-                and contact information on the main portfolio page.
-
-            </p>
-
+        <div class="project-return project-return-button-only">
 
             <a
                 class="primary-button"
@@ -478,7 +524,7 @@
                 ← Back to Portfolio
             </a>
 
-        </section>
+        </div>
 
     </main>
 
