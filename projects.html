@@ -12,7 +12,7 @@
 
     <meta
         name="description"
-        content="Aerospace engineering projects by James Kim focused on Guidance, Navigation, and Control, flight dynamics, modeling and simulation, state estimation, and systems engineering."
+        content="Personal aerospace engineering projects by James Kim focused on Guidance, Navigation, and Control, flight dynamics, modeling and simulation, state estimation, and robust control."
     >
 
     <title>
@@ -23,6 +23,14 @@
         rel="stylesheet"
         href="styles.css"
     >
+
+    <style>
+
+        .projects-page .project-detail {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+    </style>
 
 </head>
 
@@ -96,10 +104,10 @@
 
             <p>
 
-                Selected aerospace engineering projects focused on
-                Guidance, Navigation, and Control (GNC), flight dynamics,
-                modeling and simulation, state estimation, and systems
-                engineering.
+                Selected personal aerospace engineering projects
+                focused on Guidance, Navigation, and Control (GNC),
+                flight dynamics, modeling and simulation, state
+                estimation, and control systems.
 
             </p>
 
@@ -108,41 +116,22 @@
 
 
         <!-- ==================================================
-             PROJECT 01
              NONLINEAR 6-DOF FLIGHT DYNAMICS & LQR CONTROL
              ================================================== -->
 
         <section class="project-detail">
 
-            <div class="project-number">
-                01
-            </div>
-
-
             <div class="project-content">
-
-
-                <!-- ------------------------------------------
-                     CATEGORY
-                     ------------------------------------------ -->
 
                 <p class="project-category">
                     Flight Dynamics & Control
                 </p>
 
 
-                <!-- ------------------------------------------
-                     TITLE
-                     ------------------------------------------ -->
-
                 <h2 class="portfolio-project-title">
                     Nonlinear 6-DOF Flight Dynamics & LQR Control
                 </h2>
 
-
-                <!-- ------------------------------------------
-                     EXPLORE FULL PROJECT
-                     ------------------------------------------ -->
 
                 <div
                     class="portfolio-project-actions
@@ -159,10 +148,6 @@
                 </div>
 
 
-                <!-- ------------------------------------------
-                     SUBTITLE
-                     ------------------------------------------ -->
-
                 <p class="project-subtitle">
 
                     MATLAB Based Nonlinear Flight Dynamics,
@@ -170,10 +155,6 @@
 
                 </p>
 
-
-                <!-- ------------------------------------------
-                     DESCRIPTION
-                     ------------------------------------------ -->
 
                 <p>
 
@@ -197,10 +178,6 @@
                 </p>
 
 
-                <!-- ------------------------------------------
-                     TECHNICAL AREAS
-                     ------------------------------------------ -->
-
                 <h3>
                     Technical Areas
                 </h3>
@@ -222,10 +199,6 @@
                 </p>
 
 
-                <!-- ------------------------------------------
-                     SIMULATION RESULTS
-                     ------------------------------------------ -->
-
                 <h3>
                     Simulation Results
                 </h3>
@@ -239,9 +212,6 @@
 
 
                 <div class="portfolio-result-preview">
-
-
-                    <!-- RESULT 1 -->
 
                     <figure>
 
@@ -258,8 +228,6 @@
                     </figure>
 
 
-                    <!-- RESULT 2 -->
-
                     <figure>
 
                         <img
@@ -275,8 +243,6 @@
                     </figure>
 
 
-                    <!-- RESULT 3 -->
-
                     <figure>
 
                         <img
@@ -291,8 +257,6 @@
 
                     </figure>
 
-
-                    <!-- RESULT 4 -->
 
                     <figure>
 
@@ -310,24 +274,6 @@
 
                 </div>
 
-
-                <!-- ------------------------------------------
-                     VALIDATION
-                     ------------------------------------------ -->
-
-                <div class="portfolio-project-validation">
-
-                    <span class="validation-symbol">
-                        ✓
-                    </span>
-
-                    <span>
-                        Automated Regression Suite:
-                        <strong>PASS</strong>
-                    </span>
-
-                </div>
-
             </div>
 
         </section>
@@ -335,42 +281,22 @@
 
 
         <!-- ==================================================
-             PROJECT 02
              LINUX JSBSIM STATE ESTIMATION & ROBUST FLIGHT CONTROL
              ================================================== -->
 
         <section class="project-detail">
 
-            <div class="project-number">
-                02
-            </div>
-
-
             <div class="project-content">
-
-
-                <!-- ------------------------------------------
-                     CATEGORY
-                     ------------------------------------------ -->
 
                 <p class="project-category">
                     State Estimation & Robust Flight Control
                 </p>
 
 
-                <!-- ------------------------------------------
-                     TITLE
-                     ------------------------------------------ -->
-
                 <h2 class="portfolio-project-title">
                     Linux JSBSim State Estimation & Robust Flight Control
                 </h2>
 
-
-                <!-- ------------------------------------------
-                     EXPLORE FULL PROJECT
-                     Matches the placement used in Project 01
-                     ------------------------------------------ -->
 
                 <div
                     class="portfolio-project-actions
@@ -387,10 +313,6 @@
                 </div>
 
 
-                <!-- ------------------------------------------
-                     SUBTITLE
-                     ------------------------------------------ -->
-
                 <p class="project-subtitle">
 
                     Python and JSBSim Based Flight Dynamics,
@@ -398,10 +320,6 @@
 
                 </p>
 
-
-                <!-- ------------------------------------------
-                     DESCRIPTION
-                     ------------------------------------------ -->
 
                 <p>
 
@@ -428,10 +346,6 @@
                 </p>
 
 
-                <!-- ------------------------------------------
-                     TECHNICAL AREAS
-                     ------------------------------------------ -->
-
                 <h3>
                     Technical Areas
                 </h3>
@@ -456,67 +370,6 @@
                 </p>
 
 
-                <!-- ------------------------------------------
-                     PROJECT OBJECTIVES
-                     ------------------------------------------ -->
-
-                <h3>
-                    Project Objectives
-                </h3>
-
-                <ul>
-
-                    <li>
-                        Establish and validate steady flight trim
-                        conditions using the nonlinear JSBSim
-                        aircraft model.
-                    </li>
-
-                    <li>
-                        Develop a reduced longitudinal state space
-                        representation from a numerical aircraft
-                        linearization.
-                    </li>
-
-                    <li>
-                        Evaluate controllability and observability
-                        of the reduced flight dynamics model.
-                    </li>
-
-                    <li>
-                        Design LQR state feedback and Kalman state
-                        estimation for closed-loop flight regulation.
-                    </li>
-
-                    <li>
-                        Integrate the controller and estimator into
-                        an LQG output feedback architecture.
-                    </li>
-
-                    <li>
-                        Characterize nonlinear elevator actuator
-                        behavior and incorporate actuator compensation
-                        into the closed-loop simulation.
-                    </li>
-
-                    <li>
-                        Extend the design using LQG/LTR and
-                        H-infinity robust control methods.
-                    </li>
-
-                    <li>
-                        Validate controller performance across
-                        changing operating conditions and paired
-                        nonlinear Monte Carlo simulations.
-                    </li>
-
-                </ul>
-
-
-                <!-- ------------------------------------------
-                     SIMULATION RESULTS
-                     ------------------------------------------ -->
-
                 <h3>
                     Simulation Results
                 </h3>
@@ -533,9 +386,6 @@
 
                 <div class="portfolio-result-preview">
 
-
-                    <!-- RESULT 1 -->
-
                     <figure>
 
                         <img
@@ -550,8 +400,6 @@
 
                     </figure>
 
-
-                    <!-- RESULT 2 -->
 
                     <figure>
 
@@ -568,8 +416,6 @@
                     </figure>
 
 
-                    <!-- RESULT 3 -->
-
                     <figure>
 
                         <img
@@ -585,8 +431,6 @@
                     </figure>
 
 
-                    <!-- RESULT 4 -->
-
                     <figure>
 
                         <img
@@ -601,221 +445,6 @@
 
                     </figure>
 
-                </div>
-
-
-                <!-- ------------------------------------------
-                     VALIDATION
-                     ------------------------------------------ -->
-
-                <div class="portfolio-project-validation">
-
-                    <span class="validation-symbol">
-                        ✓
-                    </span>
-
-                    <span>
-                        Nonlinear Robustness Validation:
-                        <strong>
-                            9 Operating Points + 50 Paired Monte Carlo Cases
-                        </strong>
-                    </span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================================================
-             PROJECT 03
-             ROCKET FLIGHT SIMULATION & ANALYSIS
-             ================================================== -->
-
-        <section class="project-detail">
-
-            <div class="project-number">
-                03
-            </div>
-
-
-            <div class="project-content">
-
-
-                <p class="project-category">
-                    Flight Simulation & Data Analysis
-                </p>
-
-
-                <h2>
-                    Rocket Flight Simulation & Analysis
-                </h2>
-
-
-                <p class="project-subtitle">
-                    USC Rocket Propulsion Laboratory
-                </p>
-
-
-                <p>
-
-                    Analyzed recovered flight data and simulation
-                    outputs to evaluate trajectory behavior, recovery
-                    performance, environmental effects, and
-                    discrepancies between predicted and measured
-                    flight behavior.
-
-                </p>
-
-
-                <h3>
-                    Technical Areas
-                </h3>
-
-
-                <p class="project-tags">
-
-                    MATLAB •
-                    Trajectory Analysis •
-                    Flight Data Analysis •
-                    Modeling & Simulation •
-                    Verification
-
-                </p>
-
-
-                <h3>
-                    Project Activities
-                </h3>
-
-
-                <ul>
-
-                    <li>
-                        Analyzed launch-day flight recovery data
-                        using MATLAB.
-                    </li>
-
-                    <li>
-                        Evaluated trajectory and flight-system
-                        outputs.
-                    </li>
-
-                    <li>
-                        Compared simulation predictions against
-                        recovered flight behavior.
-                    </li>
-
-                    <li>
-                        Investigated simulation discrepancies and
-                        supported improvements to flight-performance
-                        analysis.
-                    </li>
-
-                </ul>
-
-
-                <div class="project-image-placeholder">
-                    Trajectory / flight-data visualization
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================================================
-             PROJECT 04
-             VISION-BASED MOTION TRACKING SYSTEM
-             ================================================== -->
-
-        <section class="project-detail">
-
-            <div class="project-number">
-                04
-            </div>
-
-
-            <div class="project-content">
-
-
-                <p class="project-category">
-                    Sensors & System Integration
-                </p>
-
-
-                <h2>
-                    Vision-Based Motion Tracking System
-                </h2>
-
-
-                <p class="project-subtitle">
-                    Sensor Calibration and System Validation
-                </p>
-
-
-                <p>
-
-                    Developed and validated a camera-based
-                    three-dimensional displacement measurement
-                    system for use in a physics-informed digital-twin
-                    research platform.
-
-                </p>
-
-
-                <h3>
-                    Technical Areas
-                </h3>
-
-
-                <p class="project-tags">
-
-                    ROS •
-                    Intel RealSense •
-                    Sensor Calibration •
-                    System Integration •
-                    Verification & Validation
-
-                </p>
-
-
-                <h3>
-                    Project Activities
-                </h3>
-
-
-                <ul>
-
-                    <li>
-                        Integrated depth-camera sensing with a
-                        ROS-based data-processing pipeline.
-                    </li>
-
-                    <li>
-                        Developed calibration procedures using
-                        controlled ground-truth displacement
-                        measurements.
-                    </li>
-
-                    <li>
-                        Evaluated measurement error and system
-                        reliability.
-                    </li>
-
-                    <li>
-                        Supported hardware/software integration
-                        and validation.
-                    </li>
-
-                </ul>
-
-
-                <div class="project-image-placeholder">
-                    Sensor setup / calibration results / displacement plot
                 </div>
 
             </div>
