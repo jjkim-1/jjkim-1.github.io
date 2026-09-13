@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="James Kim's recovery demonstration using USC RPL's FlightOn software: a parachute descent simulation verified against an analytical solution.">
+  <title>FlightOn Recovery Demonstration | James Kim</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #1f2933; background: #fff; line-height: 1.65; }
+    a { color: #244f75; text-underline-offset: 3px; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid #2474ba; outline-offset: 5px; }
+    .wrap { width: min(1100px, calc(100% - 40px)); margin: auto; }
+    header { border-bottom: 1px solid #dfe4e9; padding: 25px 0; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .brand { color: inherit; text-decoration: none; font-size: 26px; font-weight: 700; }
+    .degree { margin: 0; color: #52606d; font-size: 15px; }
+    nav { display: flex; flex-wrap: wrap; gap: 22px; }
+    nav a { color: inherit; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    main { padding: 46px 0 65px; }
+    .back { display: inline-block; margin-bottom: 28px; }
+    .eyebrow { color: #52606d; font-size: 14px; letter-spacing: .07em; text-transform: uppercase; font-weight: 700; }
+    h1 { font-size: clamp(30px, 4vw, 46px); line-height: 1.18; margin: 12px 0 22px; }
+    h2 { font-size: 27px; line-height: 1.3; margin: 0 0 16px; }
+    p { margin: 0 0 18px; }
+    .lead { font-size: 20px; max-width: 900px; }
+    .skills { font-weight: 700; margin-top: 22px; }
+    section { margin-top: 45px; }
+    .note { padding: 20px 24px; background: #f4f7fa; border-left: 4px solid #496783; margin-top: 26px; }
+    .note p:last-child { margin-bottom: 0; }
+    .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin: 25px 0; }
+    .stat { padding: 22px; border: 1px solid #dfe4e9; border-radius: 10px; }
+    .stat strong { display: block; font-size: 27px; line-height: 1.3; }
+    .stat span { color: #52606d; font-size: 15px; }
+    figure { margin: 24px 0; padding: 18px; border: 1px solid #dfe4e9; border-radius: 12px; }
+    figure img { display: block; width: 100%; height: auto; }
+    figcaption { margin-top: 16px; color: #52606d; font-size: 15px; }
+    .image-link { display: inline-block; margin-top: 10px; font-size: 15px; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th, td { border-bottom: 1px solid #dfe4e9; padding: 13px 15px; vertical-align: top; }
+    th { background: #f4f7fa; }
+    details { border: 1px solid #dfe4e9; border-radius: 10px; padding: 20px; margin-top: 25px; }
+    summary { font-size: 19px; font-weight: 700; cursor: pointer; }
+    details > p { margin-top: 18px; }
+    .button { display: inline-block; background: #1f2933; color: #fff; padding: 13px 23px; border-radius: 6px; text-decoration: none; font-weight: 700; }
+    .button:hover { background: #34495e; }
+    footer { border-top: 1px solid #dfe4e9; padding: 25px 0; color: #52606d; }
+    @media (max-width: 650px) { .stats { grid-template-columns: 1fr; } figure { padding: 10px; } th, td { padding: 10px; } main { padding-top: 28px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap header-inner">
+      <div>
+        <a class="brand" href="../index.html">James Kim</a>
+        <p class="degree">Aerospace Engineering M.S., USC</p>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="../index.html#about">About</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../index.html#experience">Experience</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <a class="back" href="../index.html#experience">← Back to Experience</a>
+    <p class="eyebrow">USC Rocket Propulsion Laboratory · FlightOn</p>
+    <h1>Parachute Recovery Simulation and Numerical Verification</h1>
+    <p class="lead">A recovery demonstration using FlightOn to model parachute descent and compare the numerical trajectory with an analytical solution for motion under gravity and quadratic drag.</p>
+    <p class="skills">C++ · MATLAB · Flight Dynamics · Numerical Integration · Model Verification</p>
+    <div class="note">
+      <p><strong>Context and attribution</strong></p>
+      <p>FlightOn is software developed by the USC Rocket Propulsion Laboratory team. This demonstration was prepared separately for this portfolio using local modifications to its recovery workflow. It uses synthetic conditions and is not a reconstruction of an RPL flight or a comparison with measured flight data.</p>
+    </div>
+    <section aria-labelledby="purpose">
+      <h2 id="purpose">Purpose and Implementation</h2>
+      <p>The goal was to verify a simplified recovery calculation before using its results to discuss vehicle descent. Local modifications allow one unpowered recovery stage to begin at a specified height and downward speed, without simulating ascent or generating DATCOM aerodynamic data.</p>
+      <p>The demonstration uses FlightOn's existing parachute force model and three degree of freedom propagator. With zero wind and zero initial horizontal velocity, this case reduces to vertical descent. MATLAB compares the exported position and velocity states with an independent analytical reference.</p>
+    </section>
+    <section aria-labelledby="conditions">
+      <h2 id="conditions">Demonstration Conditions</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Quantity</th><th scope="col">Specified value</th></tr></thead>
+          <tbody>
+            <tr><td>Initial height above reference ground</td><td>1,000 ft (304.8 m)</td></tr>
+            <tr><td>Initial downward speed</td><td>1 ft/s (0.3048 m/s)</td></tr>
+            <tr><td>Payload mass</td><td>50 lbm (approximately 22.68 kg)</td></tr>
+            <tr><td>Canopy area and drag coefficient</td><td>12.57 ft²; C<sub>D</sub> = 0.97</td></tr>
+            <tr><td>Air density</td><td>Constant at 0.0023769 slug/ft³</td></tr>
+            <tr><td>Gravity</td><td>Constant at 32.174049 ft/s²</td></tr>
+            <tr><td>Wind and canopy state</td><td>Zero wind; fully deployed canopy from the start</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section aria-labelledby="results">
+      <h2 id="results">Recovery Response</h2>
+      <div class="stats">
+        <div class="stat"><strong>17.904 m/s</strong><span>Analytical terminal descent speed</span></div>
+        <div class="stat"><strong>18.259 s</strong><span>Analytical ground crossing time</span></div>
+        <div class="stat"><strong>1,015</strong><span>Saved simulation samples</span></div>
+      </div>
+      <figure>
+        <img src="../assets/flighton/recovery_response.png" alt="FlightOn and analytical curves overlap: height decreases from 304.8 metres while downward speed approaches 17.904 metres per second.">
+        <figcaption>The payload accelerates downward until drag approaches its weight. Descent speed approaches a constant value, and height then decreases approximately linearly. FlightOn and the analytical reference closely agree over the saved interval.</figcaption>
+        <a class="image-link" href="../assets/flighton/recovery_response.png">Open full-size response figure</a>
+      </figure>
+      <p>The last exported sample occurs at 18.09195 s, at a height of 2.98323 m. The saved trajectory therefore ends before the analytical ground crossing; its endpoint is not presented as touchdown.</p>
+    </section>
+    <section aria-labelledby="verification">
+      <h2 id="verification">Verification Results</h2>
+      <p>The CSV contains finite values, strictly increasing timestamps, and zero horizontal drift. The following differences compare the numerical states with the analytical solution under the same assumptions.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Metric</th><th scope="col">Result</th></tr></thead>
+          <tbody>
+            <tr><td>Maximum absolute height difference</td><td>1.0106 × 10<sup>−7</sup> m</td></tr>
+            <tr><td>Maximum absolute speed difference</td><td>4.5965 × 10<sup>−9</sup> m/s</td></tr>
+            <tr><td>Time-weighted speed RMS difference</td><td>9.5281 × 10<sup>−10</sup> m/s</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <details>
+        <summary>View numerical errors and reference equations</summary>
+        <p>With downward speed v positive, the reference equations are dv/dt = g − ρAC<sub>D</sub>v²/(2m) and dh/dt = −v, using consistent units. The terminal speed is √(2mg/(ρAC<sub>D</sub>)). The comparison uses raw state columns because the legacy exporter offsets derived-state samples.</p>
+        <figure>
+          <img src="../assets/flighton/recovery_error.png" loading="lazy" alt="Numerical minus analytical height and speed differences, with magnitudes around ten to the minus seven metres and ten to the minus nine metres per second.">
+          <figcaption>The small residuals reflect numerical and export effects in this benchmark. They are not measurement uncertainties or evidence of equivalent accuracy in a real flight.</figcaption>
+          <a class="image-link" href="../assets/flighton/recovery_error.png">Open full-size error figure</a>
+        </figure>
+      </details>
+    </section>
+    <section aria-labelledby="interpretation">
+      <h2 id="interpretation">Engineering Interpretation and Limits</h2>
+      <p>This exercise demonstrates numerical verification, force-balance interpretation, coordinate and unit checks, and analysis of simulation output. These practices support flight dynamics and GNC work by checking whether a model behaves as intended under a controlled set of assumptions.</p>
+      <p>The model assumes constant density, constant gravity, a fixed attitude, and an already deployed canopy. It does not model canopy inflation, opening shock, pendulum motion, or flight control. Agreement with the analytical solution verifies this benchmark; it does not validate every FlightOn model or predict real recovery performance.</p>
+    </section>
+    <section aria-label="Return navigation">
+      <a class="button" href="../index.html#experience">← Back to Experience</a>
+    </section>
+  </main>
+  <footer><div class="wrap">James Kim · Aerospace Engineering Portfolio</div></footer>
+</body>
+</html>
