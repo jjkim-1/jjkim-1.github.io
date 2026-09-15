@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Motion Tracking | James Kim</title>
+    <meta name="description" content="Camera based three dimensional displacement estimation for soft robotic actuators, with recorded experimental images and offline reproduction results.">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .motion-figure { margin: 36px 0 48px; }
+        .motion-figure img { display: block; width: 100%; height: auto; border: 1px solid #e5e7eb; border-radius: 8px; }
+        .motion-figure a { display: block; cursor: zoom-in; }
+        .motion-figure figcaption { max-width: 850px; margin-top: 14px; color: #4b5563; font-size: 15px; }
+        .motion-figure figcaption strong { display: block; margin-bottom: 5px; color: #1f2933; font-size: 18px; }
+        .motion-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 30px; }
+        .motion-metrics div { padding: 20px; border: 1px solid #e1e5ea; border-radius: 8px; background: #fafbfc; }
+        .motion-metrics dt { font-size: 14px; color: #4b5563; }
+        .motion-metrics dd { margin: 6px 0 0; font-size: 25px; font-weight: 700; }
+        .motion-copy { max-width: 820px; }
+        .motion-page a:focus-visible, .motion-page summary:focus-visible { outline: 3px solid #1666a5; outline-offset: 4px; }
+        @media (max-width: 700px) { .motion-metrics { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body class="motion-page">
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="site-logo" href="../index.html">James Kim</a>
+            <nav class="site-nav" aria-label="Main navigation" style="margin:0;padding:0;">
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main class="project-detail-page">
+        <div class="project-back-row"><a class="project-back-link" href="../index.html#experience">← Back to Experience</a></div>
+        <section class="project-hero">
+            <p class="project-eyebrow">USC Center for Advanced Manufacturing</p>
+            <h1>Camera Motion Tracking</h1>
+            <p class="project-hero-summary">Estimating three dimensional displacement of a soft robotic actuator from color and depth images. This demonstration reprocesses recorded experimental data to examine marker correspondence and displacement across a pressure sweep.</p>
+            <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">OpenCV</span><span class="project-tag">Intel RealSense</span><span class="project-tag">Camera Calibration</span><span class="project-tag">Displacement Analysis</span></div>
+            <a class="project-primary-button" href="#results">View Results ↓</a>
+        </section>
+        <section class="project-section">
+            <div class="project-section-heading"><p class="section-kicker">Purpose and contribution</p><h2>A measurement pipeline for actuator motion</h2></div>
+            <div class="motion-copy">
+                <p>Soft robotic actuators deform as pressure changes. Tracking a visible marker and its corresponding depth provides an estimate of how that point moves in three dimensions relative to a reference configuration.</p>
+                <p>I developed and calibrated a camera based measurement pipeline for three dimensional displacement estimation and validation of soft robotic actuators. The pipeline combines marker detection and pairing, depth processing, camera calibration, coordinate transformation, and displacement analysis.</p>
+                <p>This page presents a local reproduction using the lab project code and recorded images. The figures document the processing workflow and its agreement with an existing displacement record; they do not establish independent measurement accuracy.</p>
+            </div>
+        </section>
+        <section class="project-section" id="results">
+            <div class="project-section-heading"><p class="section-kicker">Recorded images · Offline processing</p><h2>Pressure sweep results</h2><p>All 22 configured pressure cases produced one accepted 3D marker pair. Each endpoint is compared with the same reference image, using the supplied calibration. Select any figure to open it at full size.</p></div>
+            <dl class="motion-metrics">
+                <div><dt>Pressure range</dt><dd>1–22 kPa</dd></div>
+                <div><dt>Rerun 3D displacement at 22 kPa</dt><dd>65.835 mm</dd></div>
+                <div><dt>Processed pressure cases</dt><dd>22 / 22</dd></div>
+            </dl>
+            <figure class="motion-figure">
+                <a href="../assets/camera-motion-tracking/marker_tracking_22kpa.png" target="_blank" rel="noopener"><img src="../assets/camera-motion-tracking/marker_tracking_22kpa.png" width="1280" height="480" alt="Reference and 22 kPa actuator images with the detected marker and its correspondence arrow."></a>
+                <figcaption><strong>Marker detection and correspondence</strong>The reference and deformed configurations show the marker used for displacement estimation. The arrow represents image-plane correspondence; the 3D estimate additionally uses depth and calibration.</figcaption>
+            </figure>
+            <figure class="motion-figure">
+                <a href="../assets/camera-motion-tracking/displacement_components.png" target="_blank" rel="noopener"><img src="../assets/camera-motion-tracking/displacement_components.png" loading="lazy" alt="Signed X, Y and Z displacements versus pressure, comparing the historical record and offline rerun."></a>
+                <figcaption><strong>Three dimensional displacement components</strong>Solid curves show the historical displacement record; dashed curves show the offline rerun. Axis directions follow the supplied coordinate transformation. The largest recorded response is along negative X.</figcaption>
+            </figure>
+            <figure class="motion-figure">
+                <a href="../assets/camera-motion-tracking/displacement_magnitude_path.png" target="_blank" rel="noopener"><img src="../assets/camera-motion-tracking/displacement_magnitude_path.png" loading="lazy" alt="3D displacement magnitude versus pressure and an XY displacement projection colored by pressure."></a>
+                <figcaption><strong>Displacement magnitude and spatial response</strong>The magnitude includes all three components: √(ΔX² + ΔY² + ΔZ²). The XY projection illustrates the pressure-dependent change in displacement direction. Connecting lines guide the eye between recorded endpoints; they are not a continuously sampled trajectory.</figcaption>
+            </figure>
+        </section>
+        <section class="project-section">
+            <div class="project-section-heading"><p class="section-kicker">Method</p><h2>From image coordinates to displacement</h2></div>
+            <ol class="motion-copy">
+                <li><strong>Detect and pair markers.</strong> Color segmentation and geometric filtering identify candidate markers. The configured pairing method associates the reference and endpoint detections.</li>
+                <li><strong>Evaluate depth.</strong> Local depth samples provide a depth estimate and consistency checks for each marker.</li>
+                <li><strong>Transform coordinates.</strong> Camera intrinsics convert pixel coordinates and depth into camera coordinates. The supplied extrinsic transformation maps these into the working coordinate frame.</li>
+                <li><strong>Calculate displacement.</strong> Subtract the reference position from the endpoint position and compare the result with the historical record.</li>
+            </ol>
+        </section>
+        <section class="project-section">
+            <div class="project-section-heading"><p class="section-kicker">Interpretation</p><h2>Reproducibility and limitations</h2><p>The maximum difference between rerun and historical displacement vectors is 1.150 mm at 16 kPa. This is a reproduction difference, not a sensor accuracy specification. Its cause has not been established.</p></div>
+            <figure class="motion-figure">
+                <a href="../assets/camera-motion-tracking/reproduction_difference.png" target="_blank" rel="noopener"><img src="../assets/camera-motion-tracking/reproduction_difference.png" loading="lazy" alt="Component differences between the rerun and historical record, with the largest vector difference at 16 kPa."></a>
+                <figcaption><strong>Comparison with the historical record</strong>Several intermediate cases differ, although the endpoint result closely agrees. An independent reference measurement and repeated trials would be needed to quantify accuracy and repeatability.</figcaption>
+            </figure>
+            <details class="technical-detail">
+                <summary>Data provenance and calibration assumptions</summary>
+                <div class="technical-detail-content">
+                    <p>The demonstration uses the Actuator_characterization_1007 color and depth images and the workbook’s main displacement record, dated October 7, 2025. The historical text record agrees with that main sheet at its stored precision.</p>
+                    <p>The workbook’s separate exp sheet omits two entries and renumbers later pressures, so it is excluded. Its planar R quantity is not used as a 3D magnitude. The sim sheet is also excluded because its model provenance and scaling are not established.</p>
+                    <p>The rerun retains the configured cam2 selection, although test descriptions say CAM-1. It assumes depth is aligned with color and expressed in millimeters. These calibration and recording assumptions still require confirmation; matching image dimensions alone does not establish alignment.</p>
+                    <p>Processing runs on saved files without ROS. The local runner adapts file paths and disables GUI display while preserving the supplied detection, pairing, depth processing, and coordinate calculations.</p>
+                </div>
+            </details>
+        </section>
+        <section class="project-section project-end-navigation"><a class="project-back-link" href="../index.html#experience">← Back to Experience</a></section>
+    </main>
+    <footer><p>© 2026 James Kim</p></footer>
+</body>
+</html>
