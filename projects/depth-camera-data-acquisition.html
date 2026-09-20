@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Depth-camera data acquisition and calibration workflow using Intel RealSense, ROS, aligned RGB-D imagery, and camera-to-world coordinate transformation."
+  >
+
+  <title>
+    Depth-Camera Data Acquisition and Calibration | James Kim
+  </title>
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    body {
+      margin: 0;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color: #1f2933;
+      background: #ffffff;
+
+      line-height: 1.65;
+    }
+
+
+    a {
+      color: #244f75;
+
+      text-underline-offset: 3px;
+    }
+
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid #2474ba;
+
+      outline-offset: 5px;
+    }
+
+
+    .wrap {
+      width: min(
+        1100px,
+        calc(100% - 40px)
+      );
+
+      margin: auto;
+    }
+
+
+    /* ======================================================
+       HEADER
+       ====================================================== */
+
+    header {
+      border-bottom:
+        1px solid #dfe4e9;
+
+      padding: 25px 0;
+    }
+
+
+    .header-inner {
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 20px;
+    }
+
+
+    .brand {
+      color: inherit;
+
+      text-decoration: none;
+
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+
+    .degree {
+      margin: 0;
+
+      color: #52606d;
+
+      font-size: 15px;
+    }
+
+
+    nav {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 22px;
+    }
+
+
+    nav a {
+      color: inherit;
+
+      text-decoration: none;
+    }
+
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+
+    /* ======================================================
+       MAIN
+       ====================================================== */
+
+    main {
+      padding: 46px 0 65px;
+    }
+
+
+    .back {
+      display: inline-block;
+
+      margin-bottom: 28px;
+    }
+
+
+    h1 {
+      max-width: 900px;
+
+      margin:
+        12px 0 22px;
+
+      font-size:
+        clamp(
+          30px,
+          4vw,
+          46px
+        );
+
+      line-height: 1.18;
+    }
+
+
+    h2 {
+      margin:
+        0 0 16px;
+
+      font-size: 27px;
+
+      line-height: 1.3;
+    }
+
+
+    h3 {
+      margin:
+        0 0 10px;
+
+      font-size: 19px;
+    }
+
+
+    p {
+      margin:
+        0 0 18px;
+    }
+
+
+    .lead {
+      max-width: 900px;
+
+      font-size: 20px;
+    }
+
+
+    .skills {
+      margin-top: 22px;
+
+      font-weight: 700;
+    }
+
+
+    section {
+      margin-top: 45px;
+    }
+
+
+    /* ======================================================
+       CONTEXT BOX
+       ====================================================== */
+
+    .note {
+      margin-top: 26px;
+
+      padding:
+        20px 24px;
+
+      border-left:
+        4px solid #496783;
+
+      background: #f4f7fa;
+    }
+
+
+    .note p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* ======================================================
+       WORKFLOW
+       ====================================================== */
+
+    .workflow {
+      width: 100%;
+      max-width: 620px;
+
+      margin:
+        30px auto 0;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+    }
+
+
+    .workflow-node {
+      width: 100%;
+      max-width: 500px;
+
+      padding:
+        14px 18px;
+
+      border:
+        1px solid #d8dee6;
+
+      border-radius: 8px;
+
+      background: #ffffff;
+
+      text-align: center;
+
+      font-weight: 600;
+
+      box-shadow:
+        0 2px 7px
+        rgba(0, 0, 0, 0.035);
+    }
+
+
+    .workflow-node-primary {
+      border:
+        2px solid #1f2933;
+    }
+
+
+    .workflow-node span {
+      display: block;
+
+      margin-top: 4px;
+
+      color: #52606d;
+
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+
+    .workflow-arrow {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      width: 30px;
+      height: 30px;
+
+      margin:
+        6px auto;
+
+      border-radius: 50%;
+
+      background: #f1f4f7;
+
+      font-size: 17px;
+    }
+
+
+    /* ======================================================
+       RECORDING TOPICS
+       ====================================================== */
+
+    .stream-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0, 1fr)
+        );
+
+      gap: 16px;
+
+      margin-top: 24px;
+    }
+
+
+    .stream-card {
+      padding: 20px;
+
+      border:
+        1px solid #dfe4e9;
+
+      border-radius: 10px;
+
+      background: #fafbfc;
+    }
+
+
+    .stream-card h3 {
+      margin-bottom: 8px;
+    }
+
+
+    .stream-card code {
+      overflow-wrap: anywhere;
+
+      color: #374151;
+
+      font-family:
+        SFMono-Regular,
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+      font-size: 13px;
+    }
+
+
+    .stream-card p:last-child {
+      margin-bottom: 0;
+
+      color: #52606d;
+
+      font-size: 14px;
+    }
+
+
+    /* ======================================================
+       FIGURES
+       ====================================================== */
+
+    figure {
+      margin:
+        24px 0;
+
+      padding: 18px;
+
+      border:
+        1px solid #dfe4e9;
+
+      border-radius: 12px;
+
+      background: #ffffff;
+    }
+
+
+    figure img {
+      display: block;
+
+      width: 100%;
+      height: auto;
+
+      margin: 0 auto;
+
+      object-fit: contain;
+    }
+
+
+    figcaption {
+      margin-top: 16px;
+
+      color: #52606d;
+
+      font-size: 15px;
+    }
+
+
+    .image-link {
+      display: inline-block;
+
+      margin-top: 10px;
+
+      font-size: 15px;
+    }
+
+
+    /* ------------------------------------------------------
+       CALIBRATION COMPARISON
+       ------------------------------------------------------ */
+
+    .calibration-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0, 1fr)
+        );
+
+      gap: 18px;
+
+      margin-top: 24px;
+    }
+
+
+    .calibration-grid figure {
+      margin: 0;
+    }
+
+
+    .calibration-grid img {
+      max-height: 520px;
+    }
+
+
+    /* ------------------------------------------------------
+       CHARUCO REFERENCE
+       ------------------------------------------------------ */
+
+    .board-reference {
+      max-width: 500px;
+
+      margin:
+        30px auto 0;
+    }
+
+
+    .board-reference img {
+      max-width: 380px;
+    }
+
+
+    /* ======================================================
+       TRANSFORMATION FLOW
+       ====================================================== */
+
+    .transform-flow {
+      width: 100%;
+      max-width: 650px;
+
+      margin:
+        30px auto 0;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+    }
+
+
+    .transform-node {
+      width: 100%;
+      max-width: 520px;
+
+      padding:
+        13px 18px;
+
+      border:
+        1px solid #d8dee6;
+
+      border-radius: 8px;
+
+      background: #fafbfc;
+
+      text-align: center;
+    }
+
+
+    .transform-node strong {
+      display: block;
+
+      margin-bottom: 3px;
+    }
+
+
+    .transform-node span {
+      color: #52606d;
+
+      font-size: 14px;
+    }
+
+
+    /* ======================================================
+       TECHNICAL LIST
+       ====================================================== */
+
+    .technical-list {
+      max-width: 850px;
+
+      padding-left: 22px;
+    }
+
+
+    .technical-list li {
+      margin-bottom: 11px;
+    }
+
+
+    /* ======================================================
+       LIMITATION BOX
+       ====================================================== */
+
+    .archive-note {
+      margin-top: 24px;
+
+      padding:
+        18px 22px;
+
+      border:
+        1px solid #dfe4e9;
+
+      border-radius: 9px;
+
+      background: #fafbfc;
+    }
+
+
+    .archive-note p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* ======================================================
+       RETURN BUTTON
+       ====================================================== */
+
+    .button {
+      display: inline-block;
+
+      padding:
+        13px 23px;
+
+      border-radius: 6px;
+
+      background: #1f2933;
+      color: #ffffff;
+
+      text-decoration: none;
+
+      font-weight: 700;
+    }
+
+
+    .button:hover {
+      background: #34495e;
+    }
+
+
+    /* ======================================================
+       FOOTER
+       ====================================================== */
+
+    footer {
+      padding:
+        25px 0;
+
+      border-top:
+        1px solid #dfe4e9;
+
+      color: #52606d;
+    }
+
+
+    /* ======================================================
+       MOBILE
+       ====================================================== */
+
+    @media (
+      max-width: 700px
+    ) {
+
+      main {
+        padding-top: 28px;
+      }
+
+
+      figure {
+        padding: 10px;
+      }
+
+
+      .calibration-grid,
+      .stream-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .workflow-node,
+      .transform-node {
+        max-width: 100%;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- ======================================================
+       HEADER
+       ====================================================== -->
+
+  <header>
+
+    <div class="wrap header-inner">
+
+      <div>
+
+        <a
+          class="brand"
+          href="../index.html"
+        >
+          James Kim
+        </a>
+
+        <p class="degree">
+          Aerospace Engineering M.S., USC
+        </p>
+
+      </div>
+
+
+      <nav
+        aria-label="Main navigation"
+      >
+
+        <a
+          href="../index.html#about"
+        >
+          About
+        </a>
+
+        <a
+          href="../projects.html"
+        >
+          Projects
+        </a>
+
+        <a
+          href="../index.html#experience"
+        >
+          Experience
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- ======================================================
+       MAIN
+       ====================================================== -->
+
+  <main class="wrap">
+
+
+    <a
+      class="back"
+      href="../index.html#experience"
+    >
+      ← Back to Experience
+    </a>
+
+
+    <h1>
+      Depth-Camera Data Acquisition and Calibration
+    </h1>
+
+
+    <p class="lead">
+      An RGB-D acquisition and calibration workflow using an Intel
+      RealSense depth camera, ROS, and OpenCV to capture aligned color
+      and depth data and establish the coordinate transformation needed
+      for three dimensional motion tracking.
+    </p>
+
+
+    <p class="skills">
+      Python · ROS · Intel RealSense · OpenCV · RGB-D Imaging · Camera Calibration
+    </p>
+
+
+    <!-- ====================================================
+         CONTEXT
+         ==================================================== -->
+
+    <div class="note">
+
+      <p>
+        <strong>
+          Context and attribution
+        </strong>
+      </p>
+
+      <p>
+        This page documents the depth-camera acquisition and calibration
+        workflow contained in the available research repository. The
+        repository includes camera calibration utilities and a ROS
+        <code>camera_record</code> package for collecting aligned RGB
+        and depth imagery. The archived files do not include a retained
+        example RGB/depth image pair produced by the recording script,
+        so no synthetic image pair is presented here.
+      </p>
+
+    </div>
+
+
+    <!-- ====================================================
+         PURPOSE
+         ==================================================== -->
+
+    <section
+      aria-labelledby="purpose"
+    >
+
+      <h2 id="purpose">
+        Purpose and Acquisition Workflow
+      </h2>
+
+
+      <p>
+        The acquisition stage provides the image and depth information
+        required by the downstream vision-based motion-tracking
+        workflow. The system uses a RealSense depth camera to acquire
+        color images and depth maps, while camera calibration establishes
+        the geometric relationship between the camera coordinate system
+        and the experiment's world coordinate system.
+      </p>
+
+
+      <p>
+        The repository workflow is designed to run the image-acquisition
+        portion on an Ubuntu Linux environment with ROS and the Intel
+        RealSense software stack. Depth data are aligned to the color
+        image before recording so that image pixels and their associated
+        depth measurements share the same image coordinate system.
+      </p>
+
+
+      <div class="workflow">
+
+        <div class="workflow-node workflow-node-primary">
+
+          Intel RealSense Depth Camera
+
+          <span>
+            RGB image stream and depth map
+          </span>
+
+        </div>
+
+
+        <div class="workflow-arrow">
+          ↓
+        </div>
+
+
+        <div class="workflow-node">
+
+          RealSense ROS Interface
+
+          <span>
+            Camera streams published through ROS
+          </span>
+
+        </div>
+
+
+        <div class="workflow-arrow">
+          ↓
+        </div>
+
+
+        <div class="workflow-node">
+
+          Depth-to-Color Alignment
+
+          <span>
+            Depth image aligned with the color image
+          </span>
+
+        </div>
+
+
+        <div class="workflow-arrow">
+          ↓
+        </div>
+
+
+        <div class="workflow-node">
+
+          camera_record / listener.py
+
+          <span>
+            Records color and aligned depth frames
+          </span>
+
+        </div>
+
+
+        <div class="workflow-arrow">
+          ↓
+        </div>
+
+
+        <div class="workflow-node">
+
+          RGB + Depth Image Files
+
+          <span>
+            Timestamp-matched data for downstream processing
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================================
+         RECORDING
+         ==================================================== -->
+
+    <section
+      aria-labelledby="recording"
+    >
+
+      <h2 id="recording">
+        RGB-D Recording
+      </h2>
+
+
+      <p>
+        The repository's <code>listener.py</code> script uses ROS image
+        messages and <code>cv_bridge</code> to convert incoming camera
+        messages into OpenCV images. Each acquisition cycle creates one
+        timestamp that is used when saving the color frame and the
+        corresponding aligned depth frame.
+      </p>
+
+
+      <div class="stream-grid">
+
+
+        <div class="stream-card">
+
+          <h3>
+            Color Stream
+          </h3>
+
+          <p>
+            <code>
+              /camera/color/image_raw
+            </code>
+          </p>
+
+          <p>
+            Converted to an OpenCV BGR image and stored in the RGB
+            output directory.
+          </p>
+
+        </div>
+
+
+        <div class="stream-card">
+
+          <h3>
+            Aligned Depth Stream
+          </h3>
+
+          <p>
+            <code>
+              /camera/aligned_depth_to_color/image_raw
+            </code>
+          </p>
+
+          <p>
+            Converted as a 16-bit single-channel depth image and stored
+            in the depth output directory.
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="archive-note">
+
+        <p>
+          <strong>
+            Available archive limitation
+          </strong>
+        </p>
+
+        <p>
+          The provided repository contains the recording code but does
+          not contain the RGB and depth output directories from an
+          acquisition run. The workflow above therefore documents the
+          actual acquisition path implemented by the code without
+          presenting a fabricated example frame pair.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================================
+         CAMERA CALIBRATION
+         ==================================================== -->
+
+    <section
+      aria-labelledby="calibration"
+    >
+
+      <h2 id="calibration">
+        Camera Calibration
+      </h2>
+
+
+      <p>
+        Calibration uses a ChArUco-style marker board with known marker
+        geometry. The repository includes both a captured calibration
+        image and a marker-detection result, allowing the calibration
+        pipeline to be inspected directly from the archived project
+        files.
+      </p>
+
+
+      <div class="calibration-grid">
+
+
+        <figure>
+
+          <img
+            src="../assets/depth-camera/calibration-board-capture.png"
+            alt="Calibration board photographed by the depth camera before marker detection."
+          >
+
+          <figcaption>
+            <strong>
+              Calibration-board capture.
+            </strong>
+            Camera image of the calibration target before fiducial
+            detection and pose processing.
+          </figcaption>
+
+          <a
+            class="image-link"
+            href="../assets/depth-camera/calibration-board-capture.png"
+          >
+            Open full-size calibration capture
+          </a>
+
+        </figure>
+
+
+        <figure>
+
+          <img
+            src="../assets/depth-camera/marker-detection.png"
+            alt="Calibration board image with detected fiducial marker identifiers overlaid."
+          >
+
+          <figcaption>
+            <strong>
+              Fiducial-marker detection.
+            </strong>
+            Detected board markers provide image coordinates associated
+            with known locations on the calibration target.
+          </figcaption>
+
+          <a
+            class="image-link"
+            href="../assets/depth-camera/marker-detection.png"
+          >
+            Open full-size marker detection
+          </a>
+
+        </figure>
+
+
+      </div>
+
+
+      <figure class="board-reference">
+
+        <img
+          src="../assets/depth-camera/charuco-board.png"
+          alt="ChArUco calibration board used by the camera-calibration workflow."
+          loading="lazy"
+        >
+
+        <figcaption>
+          Calibration-board reference included with the camera-calibration
+          repository.
+        </figcaption>
+
+        <a
+          class="image-link"
+          href="../assets/depth-camera/charuco-board.png"
+        >
+          Open full-size board reference
+        </a>
+
+      </figure>
+
+    </section>
+
+
+    <!-- ====================================================
+         CAMERA TO WORLD TRANSFORMATION
+         ==================================================== -->
+
+    <section
+      aria-labelledby="transformation"
+    >
+
+      <h2 id="transformation">
+        Camera-to-World Transformation
+      </h2>
+
+
+      <p>
+        The calibration scripts associate detected marker corners in the
+        camera image with known marker locations on the calibration
+        board. Marker pose estimation provides corresponding
+        three-dimensional points in the camera coordinate system.
+        A rigid transformation is then determined between the camera
+        coordinates and the known world coordinates of the board.
+      </p>
+
+
+      <div class="transform-flow">
+
+
+        <div class="transform-node">
+
+          <strong>
+            Known Calibration Geometry
+          </strong>
+
+          <span>
+            Marker IDs and board coordinates
+          </span>
+
+        </div>
+
+
+        <div class="workflow-arrow">
+          ↓
+        </div>
+
+
+        <div class="transform-node">
+
+          <strong>
+            Marker Detection
+          </strong>
+
+          <span>
+            Fiducial corners located in image coordinates
+          </span>
+
+        </div>
+
+
+        <div class="workflow-arrow">
+          ↓
+        </div>
+
+
+        <div class="transform-node">
+
+          <strong>
+            Camera Intrinsics and Pose Estimation
+          </strong>
+
+          <span>
+            Image measurements mapped into the camera frame
+          </span>
+
+        </div>
+
+
+        <div class="workflow-arrow">
+          ↓
+        </div>
+
+
+        <div class="transform-node">
+
+          <strong>
+            Rigid Camera-to-World Registration
+          </strong>
+
+          <span>
+            Rotation and translation between coordinate systems
+          </span>
+
+        </div>
+
+
+        <div class="workflow-arrow">
+          ↓
+        </div>
+
+
+        <div class="transform-node">
+
+          <strong>
+            World-Frame Coordinates
+          </strong>
+
+          <span>
+            Common reference frame for motion measurements
+          </span>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================================
+         MOTION TRACKING ROLE
+         ==================================================== -->
+
+    <section
+      aria-labelledby="motion-tracking"
+    >
+
+      <h2 id="motion-tracking">
+        Role in the Motion-Tracking Pipeline
+      </h2>
+
+
+      <p>
+        The acquisition and calibration stages establish the data and
+        coordinate framework required for three dimensional tracking.
+        In the broader vision-based workflow, colored markers on the
+        target are identified in the RGB image, their image centroids
+        are paired with depth information, and camera intrinsics are
+        used to recover their three dimensional camera-frame positions.
+        The calibrated extrinsic transformation then maps those
+        positions into the world frame.
+      </p>
+
+
+      <div class="workflow">
+
+
+        <div class="workflow-node">
+
+          RGB + Aligned Depth Acquisition
+
+        </div>
+
+
+        <div class="workflow-arrow">
+          ↓
+        </div>
+
+
+        <div class="workflow-node">
+
+          Camera Calibration
+
+        </div>
+
+
+        <div class="workflow-arrow">
+          ↓
+        </div>
+
+
+        <div class="workflow-node">
+
+          Marker Detection and Segmentation
+
+        </div>
+
+
+        <div class="workflow-arrow">
+          ↓
+        </div>
+
+
+        <div class="workflow-node">
+
+          Depth + Intrinsics
+
+        </div>
+
+
+        <div class="workflow-arrow">
+          ↓
+        </div>
+
+
+        <div class="workflow-node workflow-node-primary">
+
+          3D World-Frame Marker Coordinates
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================================
+         TECHNICAL COMPONENTS
+         ==================================================== -->
+
+    <section
+      aria-labelledby="components"
+    >
+
+      <h2 id="components">
+        Technical Components
+      </h2>
+
+
+      <ul class="technical-list">
+
+        <li>
+          Intel RealSense depth-camera acquisition on an Ubuntu
+          Linux environment.
+        </li>
+
+        <li>
+          ROS-based color and aligned depth image streams.
+        </li>
+
+        <li>
+          OpenCV and <code>cv_bridge</code> conversion between ROS
+          image messages and image arrays.
+        </li>
+
+        <li>
+          Timestamp-based pairing of RGB and depth image files.
+        </li>
+
+        <li>
+          ChArUco / ArUco fiducial detection for calibration.
+        </li>
+
+        <li>
+          Camera intrinsic parameters and lens-distortion
+          coefficients used during pose processing.
+        </li>
+
+        <li>
+          Camera-to-world rigid transformation represented by
+          rotation and translation.
+        </li>
+
+        <li>
+          Calibration outputs used to support subsequent
+          three dimensional marker tracking.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- ====================================================
+         INTERPRETATION AND LIMITS
+         ==================================================== -->
+
+    <section
+      aria-labelledby="interpretation"
+    >
+
+      <h2 id="interpretation">
+        Engineering Interpretation and Limits
+      </h2>
+
+
+      <p>
+        The depth-camera acquisition stage is important because the
+        downstream displacement calculation depends on reliable
+        correspondence between color-image locations and depth
+        measurements. Aligning the depth map with the color frame and
+        establishing a calibrated world coordinate system provides a
+        consistent basis for comparing tracked marker positions over
+        time.
+      </p>
+
+
+      <p>
+        The available archive documents the intended acquisition and
+        calibration workflow but does not include recorded RGB/depth
+        output pairs from an experiment. The figures shown on this page
+        therefore document the retained calibration artifacts rather
+        than presenting reconstructed or synthetic camera measurements.
+        Calibration quality and depth accuracy also depend on the
+        camera configuration, target visibility, imaging conditions,
+        and the quality of the underlying depth measurement.
+      </p>
+
+    </section>
+
+
+    <!-- ====================================================
+         RETURN
+         ==================================================== -->
+
+    <section
+      aria-label="Return navigation"
+    >
+
+      <a
+        class="button"
+        href="../index.html#experience"
+      >
+        ← Back to Experience
+      </a>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- ======================================================
+       FOOTER
+       ====================================================== -->
+
+  <footer>
+
+    <div class="wrap">
+
+      James Kim · Aerospace Engineering Portfolio
+
+    </div>
+
+  </footer>
+
+
+</body>
+
+</html>
