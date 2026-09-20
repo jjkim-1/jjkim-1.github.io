@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,9 @@
   <title>AimOn Wind Analysis | James Kim</title>
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -86,14 +89,6 @@
     .back {
       display: inline-block;
       margin-bottom: 28px;
-    }
-
-    .eyebrow {
-      color: #52606d;
-      font-size: 14px;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      font-weight: 700;
     }
 
     h1 {
@@ -184,13 +179,8 @@
       background: #34495e;
     }
 
-    footer {
-      border-top: 1px solid #dfe4e9;
-      padding: 25px 0;
-      color: #52606d;
-    }
-
     @media (max-width: 650px) {
+
       figure {
         padding: 10px;
       }
@@ -202,34 +192,65 @@
   </style>
 </head>
 
+
 <body>
 
   <header>
+
     <div class="wrap header-inner">
 
       <div>
-        <a class="brand" href="../index.html">James Kim</a>
-        <p class="degree">Aerospace Engineering M.S., USC</p>
+
+        <a
+          class="brand"
+          href="../index.html"
+        >
+          James Kim
+        </a>
+
+        <p class="degree">
+          Aerospace Engineering M.S., USC
+        </p>
+
       </div>
 
+
       <nav aria-label="Main navigation">
-        <a href="../index.html#about">About</a>
-        <a href="../projects.html">Projects</a>
-        <a href="../index.html#experience">Experience</a>
+
+        <a href="../index.html#about">
+          About
+        </a>
+
+        <a href="../projects.html">
+          Projects
+        </a>
+
+        <a href="../index.html#experience">
+          Experience
+        </a>
+
       </nav>
 
     </div>
+
   </header>
+
 
   <main class="wrap">
 
-    <a class="back" href="../index.html#experience">
+
+    <a
+      class="back"
+      href="../index.html#experience"
+    >
       ← Back to Experience
     </a>
+
 
     <h1>
       Wind Analysis and Hovmöller Visualization with AimOn
     </h1>
+
 
     <p class="lead">
       A wind-analysis demonstration showing how atmospheric wind speed
@@ -238,21 +259,29 @@
       contour visualization.
     </p>
 
+
     <p class="skills">
       Python · Atmospheric Data · SciPy · Interpolation · Data Visualization
     </p>
 
+
     <div class="note">
-      <p><strong>Context and attribution</strong></p>
 
       <p>
-        AimOn is software developed by the USC Rocket Propulsion Laboratory team.
-        My work focused on wind-profile visualization and atmospheric-data processing
-        within the AimOn workflow. This portfolio demonstration was reconstructed
-        locally from an archived Black Rock wind profile. Additional hourly profiles
-        are synthetic and are used only to demonstrate and validate the visualization
-        workflow.
+        <strong>
+          Context and attribution
+        </strong>
       </p>
+
+      <p>
+        AimOn is software developed by the USC Rocket Propulsion Laboratory
+        team. My work focused on wind-profile visualization and atmospheric-data
+        processing within the AimOn workflow. This portfolio demonstration was
+        reconstructed locally from an archived Black Rock wind profile.
+        Additional hourly profiles are synthetic and are used only to
+        demonstrate and validate the visualization workflow.
+      </p>
+
     </div>
 
 
@@ -263,18 +292,19 @@
       </h2>
 
       <p>
-        The purpose of this work was to improve the presentation and interpretation
-        of atmospheric wind data used during launch analysis. The Hovmöller workflow
-        visualizes how wind speed changes with both altitude and time, allowing changes
-        in the vertical wind field to be identified more clearly than with individual
-        profile plots alone.
+        The purpose of this work was to improve the presentation and
+        interpretation of atmospheric wind data used during launch analysis.
+        The Hovmöller workflow visualizes how wind speed changes with both
+        altitude and time, allowing changes in the vertical wind field to be
+        identified more clearly than with individual profile plots alone.
       </p>
 
       <p>
-        The local reconstruction focuses on improvements I worked on or identified
-        within the AimOn wind-visualization workflow, including timestamp parsing,
-        wind-speed unit handling, interpolation-grid resolution, color scaling,
-        contour thresholds, and interpolation robustness.
+        The local reconstruction focuses on improvements I worked on or
+        identified within the AimOn wind-visualization workflow, including
+        timestamp parsing, wind-speed unit handling, interpolation-grid
+        resolution, color scaling, contour thresholds, and interpolation
+        robustness.
       </p>
 
     </section>
@@ -287,12 +317,13 @@
       </h2>
 
       <p>
-        The archived Black Rock wind file contained overlapping altitude sequences.
-        For this portfolio demonstration, the profile was processed locally to create
-        one monotonic altitude sequence consistent with the intended AimOn model-splicing
-        workflow. The processed profile is used only as the baseline for the visualization
-        demonstration.
+        The archived Black Rock wind file contained overlapping altitude
+        sequences. For this portfolio demonstration, the profile was processed
+        locally to create one monotonic altitude sequence consistent with the
+        intended AimOn model-splicing workflow. The processed profile is used
+        only as the baseline for the visualization demonstration.
       </p>
+
 
       <figure>
 
@@ -302,8 +333,9 @@
         >
 
         <figcaption>
-          Processed Black Rock vertical wind-speed profile used as the baseline
-          atmospheric input for the local AimOn visualization reconstruction.
+          Processed Black Rock vertical wind-speed profile used as the
+          baseline atmospheric input for the local AimOn visualization
+          reconstruction.
         </figcaption>
 
         <a
@@ -326,11 +358,12 @@
 
       <p>
         Because only one archived Black Rock profile was available locally,
-        additional hourly profiles were generated synthetically around the processed
-        baseline. These profiles are not historical RPL measurements. They are used
-        only to exercise the time-altitude interpolation and demonstrate the plotting
-        improvements.
+        additional hourly profiles were generated synthetically around the
+        processed baseline. These profiles are not historical RPL measurements.
+        They are used only to exercise the time-altitude interpolation and
+        demonstrate the plotting improvements.
       </p>
+
 
       <figure>
 
@@ -340,9 +373,10 @@
         >
 
         <figcaption>
-          Hovmöller wind-speed visualization showing the processed Black Rock baseline
-          and synthetic hourly variation. A sequential color scale represents wind-speed
-          magnitude, while selected contour lines highlight wind-speed thresholds.
+          Hovmöller wind-speed visualization showing the processed Black Rock
+          baseline and synthetic hourly variation. A sequential color scale
+          represents wind-speed magnitude, while selected contour lines
+          highlight wind-speed thresholds.
         </figcaption>
 
         <a
@@ -364,10 +398,12 @@
       </h2>
 
       <p>
-        The individual wind profiles were also plotted together to verify that the
-        synthetic variation remained close to the processed baseline and changed
-        smoothly with time rather than introducing large discontinuities.
+        The individual wind profiles were also plotted together to verify
+        that the synthetic variation remained close to the processed baseline
+        and changed smoothly with time rather than introducing large
+        discontinuities.
       </p>
+
 
       <figure>
 
@@ -377,8 +413,8 @@
         >
 
         <figcaption>
-          Processed baseline profile compared with synthetic hourly profiles used
-          to validate the time-altitude interpolation workflow.
+          Processed baseline profile compared with synthetic hourly profiles
+          used to validate the time-altitude interpolation workflow.
         </figcaption>
 
         <a
@@ -399,7 +435,9 @@
         Visualization Improvements
       </h2>
 
+
       <ul>
+
         <li>
           Parsed the AimOn <strong>AT</strong> timestamp explicitly so the hour
           encoded in the filename is retained correctly.
@@ -433,32 +471,8 @@
           Added explicit fallback handling for missing values that may remain
           after linear interpolation.
         </li>
+
       </ul>
-
-    </section>
-
-
-    <section aria-labelledby="interpretation">
-
-      <h2 id="interpretation">
-        Engineering Interpretation and Limits
-      </h2>
-
-      <p>
-        This exercise demonstrates atmospheric-data processing, interpolation,
-        unit handling, visualization design, and validation of a plotting workflow.
-        These skills support launch analysis and GNC-related work by helping engineers
-        interpret environmental inputs that can influence vehicle trajectory and
-        recovery behavior.
-      </p>
-
-      <p>
-        The time evolution shown here is synthetic and should not be interpreted as
-        measured Black Rock weather history or as a reconstruction of an RPL launch.
-        The demonstration validates the visualization workflow under controlled local
-        conditions; it does not validate the accuracy of the underlying atmospheric
-        models or predict launch-day conditions.
-      </p>
 
     </section>
 
@@ -476,11 +490,6 @@
 
   </main>
 
-  <footer>
-    <div class="wrap">
-      James Kim · Aerospace Engineering Portfolio
-    </div>
-  </footer>
-
 </body>
+
 </html>

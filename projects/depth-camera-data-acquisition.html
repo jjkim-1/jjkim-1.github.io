@@ -67,10 +67,6 @@
     }
 
 
-    /* ======================================================
-       HEADER
-       ====================================================== */
-
     header {
       border-bottom:
         1px solid #dfe4e9;
@@ -132,10 +128,6 @@
       text-decoration: underline;
     }
 
-
-    /* ======================================================
-       MAIN
-       ====================================================== */
 
     main {
       padding: 46px 0 65px;
@@ -209,10 +201,6 @@
     }
 
 
-    /* ======================================================
-       CONTEXT BOX
-       ====================================================== */
-
     .note {
       margin-top: 26px;
 
@@ -230,10 +218,6 @@
       margin-bottom: 0;
     }
 
-
-    /* ======================================================
-       WORKFLOW
-       ====================================================== */
 
     .workflow {
       width: 100%;
@@ -312,10 +296,6 @@
     }
 
 
-    /* ======================================================
-       RECORDING TOPICS
-       ====================================================== */
-
     .stream-grid {
       display: grid;
 
@@ -372,10 +352,6 @@
     }
 
 
-    /* ======================================================
-       FIGURES
-       ====================================================== */
-
     figure {
       margin:
         24px 0;
@@ -421,10 +397,6 @@
     }
 
 
-    /* ------------------------------------------------------
-       CALIBRATION COMPARISON
-       ------------------------------------------------------ */
-
     .calibration-grid {
       display: grid;
 
@@ -450,10 +422,6 @@
     }
 
 
-    /* ------------------------------------------------------
-       CHARUCO REFERENCE
-       ------------------------------------------------------ */
-
     .board-reference {
       max-width: 500px;
 
@@ -466,10 +434,6 @@
       max-width: 380px;
     }
 
-
-    /* ======================================================
-       TRANSFORMATION FLOW
-       ====================================================== */
 
     .transform-flow {
       width: 100%;
@@ -518,10 +482,6 @@
     }
 
 
-    /* ======================================================
-       TECHNICAL LIST
-       ====================================================== */
-
     .technical-list {
       max-width: 850px;
 
@@ -533,10 +493,6 @@
       margin-bottom: 11px;
     }
 
-
-    /* ======================================================
-       LIMITATION BOX
-       ====================================================== */
 
     .archive-note {
       margin-top: 24px;
@@ -557,10 +513,6 @@
       margin-bottom: 0;
     }
 
-
-    /* ======================================================
-       RETURN BUTTON
-       ====================================================== */
 
     .button {
       display: inline-block;
@@ -583,25 +535,6 @@
       background: #34495e;
     }
 
-
-    /* ======================================================
-       FOOTER
-       ====================================================== */
-
-    footer {
-      padding:
-        25px 0;
-
-      border-top:
-        1px solid #dfe4e9;
-
-      color: #52606d;
-    }
-
-
-    /* ======================================================
-       MOBILE
-       ====================================================== */
 
     @media (
       max-width: 700px
@@ -638,10 +571,6 @@
 
 <body>
 
-
-  <!-- ======================================================
-       HEADER
-       ====================================================== -->
 
   <header>
 
@@ -692,10 +621,6 @@
   </header>
 
 
-  <!-- ======================================================
-       MAIN
-       ====================================================== -->
-
   <main class="wrap">
 
 
@@ -725,10 +650,6 @@
     </p>
 
 
-    <!-- ====================================================
-         CONTEXT
-         ==================================================== -->
-
     <div class="note">
 
       <p>
@@ -749,10 +670,6 @@
 
     </div>
 
-
-    <!-- ====================================================
-         PURPOSE
-         ==================================================== -->
 
     <section
       aria-labelledby="purpose"
@@ -863,10 +780,6 @@
     </section>
 
 
-    <!-- ====================================================
-         RECORDING
-         ==================================================== -->
-
     <section
       aria-labelledby="recording"
     >
@@ -951,10 +864,6 @@
 
     </section>
 
-
-    <!-- ====================================================
-         CAMERA CALIBRATION
-         ==================================================== -->
 
     <section
       aria-labelledby="calibration"
@@ -1054,10 +963,6 @@
 
     </section>
 
-
-    <!-- ====================================================
-         CAMERA TO WORLD TRANSFORMATION
-         ==================================================== -->
 
     <section
       aria-labelledby="transformation"
@@ -1171,10 +1076,6 @@
     </section>
 
 
-    <!-- ====================================================
-         MOTION TRACKING ROLE
-         ==================================================== -->
-
     <section
       aria-labelledby="motion-tracking"
     >
@@ -1259,10 +1160,6 @@
     </section>
 
 
-    <!-- ====================================================
-         TECHNICAL COMPONENTS
-         ==================================================== -->
-
     <section
       aria-labelledby="components"
     >
@@ -1316,48 +1213,6 @@
     </section>
 
 
-    <!-- ====================================================
-         INTERPRETATION AND LIMITS
-         ==================================================== -->
-
-    <section
-      aria-labelledby="interpretation"
-    >
-
-      <h2 id="interpretation">
-        Engineering Interpretation and Limits
-      </h2>
-
-
-      <p>
-        The depth-camera acquisition stage is important because the
-        downstream displacement calculation depends on reliable
-        correspondence between color-image locations and depth
-        measurements. Aligning the depth map with the color frame and
-        establishing a calibrated world coordinate system provides a
-        consistent basis for comparing tracked marker positions over
-        time.
-      </p>
-
-
-      <p>
-        The available archive documents the intended acquisition and
-        calibration workflow but does not include recorded RGB/depth
-        output pairs from an experiment. The figures shown on this page
-        therefore document the retained calibration artifacts rather
-        than presenting reconstructed or synthetic camera measurements.
-        Calibration quality and depth accuracy also depend on the
-        camera configuration, target visibility, imaging conditions,
-        and the quality of the underlying depth measurement.
-      </p>
-
-    </section>
-
-
-    <!-- ====================================================
-         RETURN
-         ==================================================== -->
-
     <section
       aria-label="Return navigation"
     >
@@ -1373,21 +1228,6 @@
 
 
   </main>
-
-
-  <!-- ======================================================
-       FOOTER
-       ====================================================== -->
-
-  <footer>
-
-    <div class="wrap">
-
-      James Kim · Aerospace Engineering Portfolio
-
-    </div>
-
-  </footer>
 
 
 </body>
